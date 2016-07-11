@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<!-- This site was created in Webflow. http://www.webflow.com-->
+<!-- Last Published: Mon Jul 11 2016 20:51:19 GMT+0000 (UTC) -->
+<html data-wf-site="574807d20d1625555c1ee150" data-wf-page="574807d20d1625555c1ee151">
+<head>
+  <meta charset="utf-8">
+  <title>MapSwipe | Every swipe helps put families on the map</title>
+  <meta name="description" content="Humanitarian organisations can&#39;t help people if they can&#39;t find them. MapSwipe is a mobile app that lets you search satellite imagery to help put the world&#39;s most vulnerable people on the map.">
+  <meta property="og:title" content="MapSwipe | Every swipe helps put families on the map">
+  <meta property="og:description" content="Humanitarian organisations can&#39;t help people if they can&#39;t find them. MapSwipe is a mobile app that lets you search satellite imagery to help put the world&#39;s most vulnerable people on the map.">
+  <meta name="twitter:card" content="summary">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="generator" content="Webflow">
+  <link rel="stylesheet" type="text/css" href="css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="css/webflow.css">
+  <link rel="stylesheet" type="text/css" href="css/mapswipe.webflow.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
+  <script>
+    WebFont.load({
+      google: {
+        families: ["Roboto:300,regular,500,700"]
+      }
+    });
+  </script>
+  <script type="text/javascript" src="js/modernizr.js"></script>
+  <link rel="shortcut icon" type="image/x-icon" href="https://daks2k3a4ib2z.cloudfront.net/img/favicon.ico">
+  <link rel="apple-touch-icon" href="https://daks2k3a4ib2z.cloudfront.net/img/webclip.png">
+  <style>
+    @keyframes animatedBackground {
+    	from { background-position: 0% 0%; }
+    	to { background-position: 100% 0%; }
+    }
+    .hero-section {
+    	animation: animatedBackground 250s linear infinite;
+    }
+    .phone-tile {
+    	transition: background-color 1s cubic-bezier(0,1,1,1);
+     }
+    .show-tile {
+      background-color: #24db1a;
+    }
+      .strike {
+      	margin-top: 100px;
+        display: block;
+        text-align: center;
+        overflow: hidden;
+        white-space: nowrap; 
+        opacity: .7;
+      }
+      .strike > span {
+        position: relative;
+        display: inline-block;
+        color: #FFF;
+        letter-spacing: 5px;
+        font-weight: 300;
+      }
+      .strike > span:before,
+      .strike > span:after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        width: 150%;
+        height: 1px;
+        background: #FFF;
+      }
+      .strike > span:before {
+        right: 100%;
+        margin-right: 25px;
+      }
+      .strike > span:after {
+        left: 100%;
+        margin-left: 25px;
+      }
+      .no-top-margin {
+        margin-top: 0px;
+      }
+     @media screen and (max-width: 320px) {
+        .phone-container {
+            right: 4%;
+        }
+        .strike > span {
+        	font-size: 12px;
+        }
+    }
+  </style>
+</head>
+<body>
+  <div class="hero-section w-section">
+    <div class="navbar w-nav" data-animation="default" data-collapse="medium" data-contain="1" data-duration="400">
+      <div class="navbar-container w-container">
+        <a class="mapswipe-logo w-nav-brand" href="index.html"><img class="logo" src="images/mapswipe-logo.svg" width="173">
+        </a>
+        <nav class="nav-menu w-nav-menu" role="navigation"><a class="navlink w-nav-link" href="faq.html">FAQ</a><a class="navlink w-nav-link" href="http://www.missingmaps.org/events/" target="_blank">events</a><a class="navlink w-nav-link" href="about.html">ABOUT</a><a class="navlink w-nav-link" href="https://medium.com/@mapswipe" target="_blank">BLOG</a>
+        </nav>
+        <div class="menu-btn w-nav-button">
+          <div class="w-icon-nav-menu"></div>
+        </div>
+      </div>
+    </div>
+    <div class="phone-container">
+      <div class="phone-tile" id="tile-1"></div>
+      <div class="_2 phone-tile" id="tile-2"></div>
+      <div class="_3 phone-tile" id="tile-3"></div>
+      <div class="_4 phone-tile" id="tile-4"></div>
+      <div class="_5 phone-tile" id="tile-5"></div>
+      <div class="_6 phone-tile" id="tile-6"></div>
+      <div class="_7 phone-tile" id="tile-6"></div>
+    </div>
+    <div class="hero-container">
+      <h1 class="hero-heading">With every swipe and tap, you help put families on the map</h1>
+      <div class="hero-subheading">Humanitarian organizations can't help people if they can't find them. MapSwipe is a mobile app that lets you search satellite imagery to help put the world's most vulnerable people on the map.</div>
+      <a class="appstore-link w-inline-block" href="#"><img height="50" src="images/app-store.svg">
+      </a>
+      <a class="appstore-link last w-inline-block" href="#"><img height="50" src="images/google-play.svg">
+      </a>
+      <div class="w-embed">
+        <div class="strike">
+          <span>CREATED BY HUMANITARIANS</span>
+        </div>
+      </div>
+      <div class="founder-row w-row">
+        <div class="w-col w-col-2">
+          <a class="w-inline-block" href="http://www.msf.org/" target="_blank"><img alt="Doctors Without Borders" class="founder-logo wider" src="images/msf-logo-white.png">
+          </a>
+        </div>
+        <div class="w-col w-col-3">
+          <a class="w-inline-block" href="http://www.redcross.org/" target="_blank"><img alt="American Red Cross" class="founder-logo" src="images/american-red-cross-white.png">
+          </a>
+        </div>
+        <div class="w-col w-col-2">
+          <a class="w-inline-block" href="http://www.missingmaps.org/" target="_blank"><img alt="Missing Maps" class="founder-logo" src="images/MM-White.png">
+          </a>
+        </div>
+        <div class="w-col w-col-3">
+          <a class="w-inline-block" href="http://www.redcross.org.uk/" target="_blank"><img alt="British Red Cross" class="founder-logo" src="images/british-red-cross-white.png">
+          </a>
+        </div>
+        <div class="w-col w-col-2">
+          <a class="w-inline-block" href="https://hotosm.org/" target="_blank"><img alt="Humanitarian OpenStreetMap Team" class="founder-logo wider" src="images/hot-logo-white.png">
+          </a>
+        </div>
+      </div>
+      <div class="members-row w-row">
+        <div class="w-col w-col-4">
+          <a class="w-inline-block" href="http://www.rodekruis.nl/" target="_blank"><img class="member-logo" src="images/netherlands-red-cross.png" width="210">
+          </a>
+        </div>
+        <div class="w-col w-col-4">
+          <a class="w-inline-block" href="http://www.cartong.org/" target="_blank"><img class="cart-ong member-logo" src="images/cartong_logo.jpg" width="250">
+          </a>
+        </div>
+        <div class="w-col w-col-4">
+          <a class="w-inline-block" href="http://www.geog.uni-heidelberg.de/gis/" target="_blank"><img class="giscience member-logo" src="images/gi-science.png" width="342">
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer w-section">
+    <div class="w-row">
+      <div class="footer-column w-col w-col-5">
+        <div>MapSwipe. With every swipe and tap, you help put families on the map.</div>
+      </div>
+      <div class="footer-column w-col w-col-2">
+        <a class="social-link w-inline-block" href="https://www.facebook.com/MissingMapsProject" target="_blank"><img src="images/fb.svg" width="25">
+        </a>
+        <a class="social-link w-inline-block" href="https://twitter.com/TheMissingMaps" target="_blank"><img src="images/twitter.svg" width="25">
+        </a>
+      </div>
+      <div class="w-col w-col-5">
+        <div class="footer-column last-footer">Copyright © 2016 MapSwipe</div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <script type="text/javascript" src="js/webflow.js"></script>
+  <!--[if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif]-->
+  <script>
+    var prev = 0;
+    function getRandomNumber(){
+      tile = Math.ceil(Math.random() * 6);
+      $("#tile-" + prev).toggleClass("show-tile");
+      $("#tile-" + tile).toggleClass("show-tile");
+      prev = tile;
+    }
+    var loop = setInterval(getRandomNumber, 2000);
+  </script>
+</body>
+</html>
