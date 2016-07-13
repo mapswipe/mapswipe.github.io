@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- This site was created in Webflow. http://www.webflow.com-->
-<!-- Last Published: Tue Jul 12 2016 01:58:48 GMT+0000 (UTC) -->
+<!-- Last Published: Wed Jul 13 2016 22:45:08 GMT+0000 (UTC) -->
 <html data-wf-site="574807d20d1625555c1ee150" data-wf-page="5781b4ea4a3a560c48f12fbb">
 <head>
   <meta charset="utf-8">
@@ -82,6 +82,10 @@
         .strike > span {
         	font-size: 12px;
         }
+      @media screen and (max-width: 420px) {
+        .hero-section {
+    		animation: none;
+    	}
     }
   </style>
 </head>
@@ -91,7 +95,7 @@
       <div class="navbar-container w-container">
         <a class="mapswipe-logo w-nav-brand" href="index.html"><img class="logo" src="images/mapswipe-logo.svg" width="173">
         </a>
-        <nav class="nav-menu w-nav-menu" role="navigation"><a class="navlink w-nav-link" href="faq.html">FAQ</a><a class="navlink w-nav-link" href="http://www.missingmaps.org/events/" target="_blank">events</a><a class="navlink w-nav-link" href="about.html">ABOUT</a><a class="navlink w-nav-link" href="https://medium.com/@mapswipe" target="_blank">BLOG</a>
+        <nav class="nav-menu w-nav-menu" role="navigation"><a class="navlink w-nav-link" href="http://www.missingmaps.org/events/" target="_blank">events</a><a class="navlink w-nav-link" href="faq.html">FAQ</a><a class="navlink w-nav-link" href="about.html">ABOUT</a><a class="navlink w-nav-link" href="http://www.missingmaps.org/blog/2016/07/14/mapswipe/" target="_blank">BLOG</a>
         </nav>
         <div class="menu-btn w-nav-button">
           <div class="w-icon-nav-menu"></div>
@@ -206,12 +210,6 @@
           <div class="teammate-container"><img class="team-photo" src="images/benni.jpg" width="200">
             <div class="team-name">Benni Herfort</div>
             <div class="team-role">GIS Researcher</div>
-            <div class="socialmedia-container">
-              <a class="socialmedia-link w-inline-block" href="#"><img class="socialmedia-icon" src="images/linkedin.svg" width="25">
-              </a>
-              <a class="last-link socialmedia-link w-inline-block" href="#"><img class="socialmedia-icon" src="images/twitter.svg" width="25">
-              </a>
-            </div>
           </div>
         </div>
         <div class="w-col w-col-4"></div>

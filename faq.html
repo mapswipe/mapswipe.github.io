@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- This site was created in Webflow. http://www.webflow.com-->
-<!-- Last Published: Tue Jul 12 2016 01:58:48 GMT+0000 (UTC) -->
+<!-- Last Published: Wed Jul 13 2016 22:45:08 GMT+0000 (UTC) -->
 <html data-wf-site="574807d20d1625555c1ee150" data-wf-page="577fcec769b57ef60a37539a">
 <head>
   <meta charset="utf-8">
@@ -82,6 +82,10 @@
         .strike > span {
         	font-size: 12px;
         }
+      @media screen and (max-width: 420px) {
+        .hero-section {
+    		animation: none;
+    	}
     }
   </style>
 </head>
@@ -91,7 +95,7 @@
       <div class="navbar-container w-container">
         <a class="mapswipe-logo w-nav-brand" href="index.html"><img class="logo" src="images/mapswipe-logo.svg" width="173">
         </a>
-        <nav class="nav-menu w-nav-menu" role="navigation"><a class="navlink w-nav-link" href="faq.html">FAQ</a><a class="navlink w-nav-link" href="http://www.missingmaps.org/events/" target="_blank">events</a><a class="navlink w-nav-link" href="about.html">ABOUT</a><a class="navlink w-nav-link" href="https://medium.com/@mapswipe" target="_blank">BLOG</a>
+        <nav class="nav-menu w-nav-menu" role="navigation"><a class="navlink w-nav-link" href="http://www.missingmaps.org/events/" target="_blank">events</a><a class="navlink w-nav-link" href="faq.html">FAQ</a><a class="navlink w-nav-link" href="about.html">ABOUT</a><a class="navlink w-nav-link" href="http://www.missingmaps.org/blog/2016/07/14/mapswipe/" target="_blank">BLOG</a>
         </nav>
         <div class="menu-btn w-nav-button">
           <div class="w-icon-nav-menu"></div>
@@ -160,10 +164,33 @@
       <div class="faq-row w-row">
         <div class="w-col w-col-6">
           <div class="faq-container">
-            <div class="faq-title">How can I contribute to the initiative?</div>
-            <p class="faq-text">Send an email to <a href="#">feedback@missingmaps.org</a> with questions, comments, or concerns. MapSwipe is an <strong>open source</strong> project created and maintained by volunteers like you, so the best way to see new features implemented is to get involved and make it happen.
+            <div class="faq-title">What happens to the data I give?</div>
+            <p class="faq-text"><strong>User generated data</strong>
+              <br>Data created by MapSwipe volunteers is released under a "liberal" non-reciprocal license (<a href="http://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution</a>), which imposes only the requirement that users acknowledge the source (you can do whatever you want with the data, but you can't claim that you created it or neglect to mention who did create it, in this case the MapSwipe contributors).
               <br>
-              <br>More technical feedback can be added to github: <a href="#">https://github.com/mapswipe</a>
+              <br><strong>Email Addresses</strong>
+              <br>The registered email address for a MapSwipe user account will never intentionally be published on the internet anywhere, shared with third party organisations, or revealed directly to other logged in users. Only System Administrators will have direct access to email address data. It may be used by these people to contact users directly about their MapSwipe related issues.
+              <br>
+              <br><strong>IP address</strong>
+              <br>The IP address of a MapSwipe user will never intentionally be published on the internet anywhere, shared with third party organisations, or revealed directly to others.</p>
+          </div>
+        </div>
+        <div class="w-col w-col-6">
+          <div class="faq-container">
+            <div class="faq-title">How much data does MapSwipe use?</div>
+            <p class="faq-text">It depends on how much area you map! The satellite imagery can be heavy though, so we advise downloading imagery for mapping while you have a wifi connection and then mapping the tiles offline when you are outside of wifi.
+              <br>
+              <br>If you MapSwipe purely through your mobile data plan, you should expect some charges.</p>
+          </div>
+        </div>
+      </div>
+      <div class="faq-row w-row">
+        <div class="w-col w-col-6">
+          <div class="faq-container">
+            <div class="faq-title">How can I contribute to the initiative?</div>
+            <p class="faq-text">We welcome feedback. Please leave your questions, comments, or concerns on <a href="http://goo.gl/forms/RW7GJOE61GsRACIh2" target="_blank">this form here</a>. MapSwipe is an open source project created and maintained by volunteers like you, so the best way to see new features implemented is to get involved and make it happen.
+              <br>
+              <br>More technical feedback can be added to <a href="#">https://github.com/mapswipe</a>
             </p>
           </div>
         </div>
