@@ -100,7 +100,7 @@ a:hover {
 }
 
 .appstore-link {
-  display: block;
+  display: inline-block;
   margin-right: 20px;
 }
 
