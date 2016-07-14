@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<!-- This site was created in Webflow. http://www.webflow.com-->
+<!-- Last Published: Wed Jul 13 2016 22:45:08 GMT+0000 (UTC) -->
+<html data-wf-site="574807d20d1625555c1ee150" data-wf-page="577fcec769b57ef60a37539a">
+<head>
+    <meta charset="utf-8">
+    <title>Importer | MapSwipe</title>
+    <meta name="description"
+          content="Humanitarian organisations can&#39;t help people if they can&#39;t find them. MapSwipe is a mobile app that lets you search satellite imagery to help put the world&#39;s most vulnerable people on the map.">
+    <meta property="og:title" content="Add Project | MapSwipe">
+    <meta property="og:description"
+          content="Humanitarian organisations can&#39;t help people if they can&#39;t find them. MapSwipe is a mobile app that lets you search satellite imagery to help put the world&#39;s most vulnerable people on the map.">
+    <meta property="og:image" content="http://mapswipe.org/images/og-img.jpg">
+    <meta name="twitter:card" content="summary">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Webflow">
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="css/webflow.css">
+    <link rel="stylesheet" type="text/css" href="css/mapswipe.webflow.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
+    <script>
+        WebFont.load({
+            google: {
+                families: ["Roboto:300,regular,500,700"]
+            }
+        });
+    </script>
+
+    <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        // TODO: Replace with your project's customized code snippet
+        var config = {
+            apiKey: "AIzaSyB_0YpjpzQ4zALUa78jREXnryVanus1bew",
+            authDomain: "msf-mapswipe.firebaseapp.com",
+            databaseURL: "https://msf-mapswipe.firebaseio.com",
+            storageBucket: "msf-mapswipe.appspot.com",
+        };
+        firebase.initializeApp(config);
+
+        firebase.auth().signInAnonymously().catch(function(error) {
+            // Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            // ...
+        });
+
+        var db = firebase.database();
+        var importRef = db.ref("/imports")
+        var submitInfo = function() {
+            var name = document.getElementById("name").value;
+            var objective = document.getElementById("objective").value;
+            var verificationCount = document.getElementById("verificationCount").value;
+            var description = document.getElementById("description").value;
+            var submissionKey = document.getElementById("submissionKey").value;
+            var kml = document.getElementById("kml").value;
+            var image = document.getElementById("image").value;
+
+            if(name.length <= 4) {
+                alert("Name must be 4 chars");
+                return;
+            } else if(objective.length <= 3) {
+                alert("Objective must be 3 chars");
+                return;
+            } else if(description.length <= 10) {
+                alert("Description must be 10 chars");
+                return;
+            } else if(submissionKey.length <= 3) {
+                alert("submission key must be entered");
+                return;
+            } else if(kml.length <= 3) {
+                alert("KML not entered");
+                return;
+            } else if(image.length <= 3 || image.indexOf(".jpg") == -1 && image.indexOf(".png") === -1 && image.indexOf(".jpeg") === -1) {
+                alert("Make sure your image link ends with .jpg, .jpg, or .jpeg");
+                return;
+            } else {
+                alert("Submitted project! It can take up to an hour for your project to appear.");
+            }
+            var project = {
+                name: name,
+                lookFor: objective,
+                verificationCount: verificationCount,
+                projectDescription: description,
+                image: image,
+                isFeatured: false,
+                state: 0
+            }
+
+
+           importRef.push().set({
+                project: project,
+                kml: kml,
+                key: submissionKey
+            })
+        }
+    </script>
+
+    <script type="text/javascript" src="js/modernizr.js"></script>
+    <link rel="shortcut icon" type="image/x-icon" href="https://daks2k3a4ib2z.cloudfront.net/img/favicon.ico">
+    <link rel="apple-touch-icon" href="https://daks2k3a4ib2z.cloudfront.net/img/webclip.png">
+    <style>
+        @keyframes animatedBackground {
+            from {
+                background-position: 0% 0%;
+            }
+            to {
+                background-position: 100% 0%;
+            }
+        }
+
+        .hero-section {
+            animation: animatedBackground 250s linear infinite;
+        }
+
+        .phone-tile {
+            transition: background-color 1s cubic-bezier(0, 1, 1, 1);
+        }
+
+        .show-tile {
+            background-color: #24db1a;
+        }
+
+        .strike {
+            margin-top: 150px;
+            display: block;
+            text-align: center;
+            overflow: hidden;
+            white-space: nowrap;
+            opacity: .7;
+        }
+
+        .strike > span {
+            position: relative;
+            display: inline-block;
+            color: #FFF;
+            letter-spacing: 5px;
+            font-weight: 300;
+        }
+
+        .strike > span:before,
+        .strike > span:after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            width: 150%;
+            height: 1px;
+            background: #FFF;
+        }
+
+        .strike > span:before {
+            right: 100%;
+            margin-right: 25px;
+        }
+
+        .strike > span:after {
+            left: 100%;
+            margin-left: 25px;
+        }
+
+        .no-top-margin {
+            margin-top: 0px;
+        }
+
+        @media screen and (max-width: 320px) {
+            .phone-container {
+                right: 4%;
+            }
+
+            .strike > span {
+                font-size: 12px;
+            }
+
+            @media screen and (max-width: 420px) {
+                .hero-section {
+                    animation: none;
+                }
+            }
+    </style>
+</head>
+<body>
+<div class="hero-section w-section">
+    <div class="navbar w-nav" data-animation="default" data-collapse="medium" data-contain="1" data-duration="400">
+        <div class="navbar-container w-container">
+            <a class="mapswipe-logo w-nav-brand" href="index.html"><img class="logo" src="images/mapswipe-logo.svg"
+                                                                        width="173">
+            </a>
+            <nav class="nav-menu w-nav-menu" role="navigation"><a class="navlink w-nav-link"
+                                                                  href="http://www.missingmaps.org/events/"
+                                                                  target="_blank">events</a><a
+                    class="navlink w-nav-link" href="faq.html">FAQ</a><a class="navlink w-nav-link" href="about.html">ABOUT</a><a
+                    class="navlink w-nav-link" href="http://www.missingmaps.org/blog/2016/07/14/mapswipe/"
+                    target="_blank">BLOG</a>
+            </nav>
+            <div class="menu-btn w-nav-button">
+                <div class="w-icon-nav-menu"></div>
+            </div>
+        </div>
+    </div>
+    <div class="hero-container inner-page">
+        <h1 class="hero-heading">Add Your Project</h1>
+        <div class="w-embed">
+            <div class="strike no-top-margin">
+                <span>GET RESULTS FROM OUR COMMUNITY</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="section w-section">
+    <div class="container">
+        <div class="faq-row w-row">
+            <div class="w-col w-col-6">
+                <div class="faq-container">
+                    <div class="faq-title">Enter Project Name</div>
+                    <p class="faq-text">Enter the name of your project (15 chars max)
+                        <input type="text" id="name" style=""/></p>
+                </div>
+                <div class="faq-container">
+                    <div class="faq-title">Enter Objective (E.g. Houses or Houses/Roads)</div>
+                    <p class="faq-text">Enter the name of your project (15 chars max)
+                        <input type="text" id="objective" style=""/></p>
+                </div>
+                <div class="faq-container">
+                    <div class="faq-title">Verification count</div>
+                    <p class="faq-text">How many people do you want to see every tile before you consider it finished?
+                        (3 default) - more is recommended for harder tasks with harder to spot objects
+                        <br/><select id="verificationCount">
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="4">5</option>
+                        </select>
+                    </p>
+                </div>
+                <div class="faq-container">
+                    <div class="faq-title">Enter Description</div>
+                    <p class="faq-text">Enter the name of your project (15 chars max)
+                        <textarea id="description"></textarea></p>
+                </div>
+                <div class="faq-container">
+                    <div class="faq-title">Enter Submission Key</div>
+                    <p class="faq-text">You should get yours from pete masters if you don't have one.
+                        <input type="text" id="submissionKey" style=""/></p>
+                </div>
+                <div class="faq-container">
+                    <div class="faq-title">Enter KML file contents</div>
+                    <p class="faq-text">Right click your KML file, copy the contents, and paste it in here
+                        <input type="text" style="" id="kml"/></p>
+                </div>
+                <div class="faq-container">
+                    <div class="faq-title">Enter Direct Image Link</div>
+                    <p class="faq-text">Make sure you have the rights to use this image. It should end with  .jpg or .png
+                        <input type="text" style="" id="image"/></p>
+                </div> <div class="faq-container">
+                    <div class="faq-title">Submit</div>
+                    <p class="faq-text">Please check with somebody from Mapswipe that your submission is correct.
+                        <input type="button" style="" id="submit" value="Submit" onClick="submitInfo()"/></p>
+                </div>
+            </div>
+            <div class="w-col w-col-6">
+                <div class="faq-container">
+                    <div class="faq-title">Getting your submission key</div>
+                    <p class="faq-text">Contact Pete Masters to receive a key to add projects. After you have the key,
+                        you can submit a project.
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="footer w-section">
+    <div class="w-row">
+        <div class="footer-column w-col w-col-5">
+            <div>MapSwipe. With every swipe and tap, you help put families on the map.</div>
+        </div>
+        <div class="footer-column w-col w-col-2">
+            <a class="social-link w-inline-block" href="https://www.facebook.com/MissingMapsProject"
+               target="_blank"><img src="images/fb.svg" width="25">
+            </a>
+            <a class="social-link w-inline-block" href="https://twitter.com/TheMissingMaps" target="_blank"><img
+                    src="images/twitter.svg" width="25">
+            </a>
+        </div>
+        <div class="w-col w-col-5">
+            <div class="footer-column last-footer">Copyright © 2016 MapSwipe</div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script type="text/javascript" src="js/webflow.js"></script>
+<!--[if lte IE 9]>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif]-->
+</body>
+</html>

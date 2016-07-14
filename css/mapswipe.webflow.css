@@ -6,6 +6,18 @@ body {
   line-height: 20px;
 }
 
+input {
+  width: 100%;
+  height: 50px;
+  font-size: 20pt;
+  color: #212121;
+}
+
+textArea {
+  width: 100%;
+  height: 100%;
+  color: #212121;
+}
 a {
   color: #9dc850;
   font-weight: 500;
