@@ -53,8 +53,8 @@ a:hover {
   margin-right: auto;
   margin-left: auto;
   padding: 230px 15px 100px;
-  background-image: -webkit-linear-gradient(90deg, #000 77%, transparent);
-  background-image: linear-gradient(0deg, #000 77%, transparent);
+  background-image: -webkit-linear-gradient(90deg, #000 79%, transparent);
+  background-image: linear-gradient(0deg, #000 79%, transparent);
   text-align: center;
 }
 
@@ -214,7 +214,7 @@ a:hover {
 }
 
 .members-row {
-  margin-top: 40px;
+  margin-top: 50px;
 }
 
 .member-logo {
@@ -232,6 +232,10 @@ a:hover {
 
 .member-logo.giscience {
   width: 20%;
+}
+
+.member-logo.netherlands {
+  width: 50%;
 }
 
 .section {
@@ -268,6 +272,7 @@ a:hover {
   margin-bottom: 20px;
   color: #5bc1ee;
   font-size: 24px;
+  line-height: 34px;
 }
 
 .teammate-container {
@@ -334,8 +339,14 @@ a:hover {
   .founder-row {
     margin-top: 40px;
   }
-  .faq-title {
-    line-height: 34px;
+  .member-logo {
+    width: 60%;
+  }
+  .member-logo.cart-ong {
+    width: 45%;
+  }
+  .member-logo.giscience {
+    width: 25%;
   }
 }
 
@@ -358,12 +369,18 @@ a:hover {
   .footer-column.last-footer {
     margin-bottom: 0px;
   }
+  .member-logo {
+    margin-bottom: 50px;
+  }
   .teammate-container.up {
     position: static;
   }
 }
 
 @media (max-width: 479px) {
+  .hero-section {
+    background-position: -5px 0px;
+  }
   .hero-heading {
     font-size: 46px;
     line-height: 50px;
