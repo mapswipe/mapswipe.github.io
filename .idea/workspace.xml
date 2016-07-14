@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9bd4aef7-de7b-4f87-8d71-4f3050aff17a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/mapswipe.webflow.css" afterPath="$PROJECT_DIR$/css/mapswipe.webflow.css" />
     </list>
     <ignored path="mapswipe.github.io.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -23,11 +23,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.43586206">
-              <caret line="120" column="52" selection-start-line="120" selection-start-column="52" selection-end-line="120" selection-end-column="52" />
+            <state vertical-scroll-proportion="-5.901961">
+              <caret line="119" column="12" selection-start-line="119" selection-start-column="12" selection-end-line="119" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -43,11 +43,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mapswipe.webflow.css" pinned="false" current-in-tab="false">
+      <file leaf-file-name="mapswipe.webflow.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/css/mapswipe.webflow.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.72549">
-              <caret line="129" column="7" selection-start-line="129" selection-start-column="6" selection-end-line="129" selection-end-column="7" />
+            <state vertical-scroll-proportion="0.04137931">
+              <caret line="102" column="24" selection-start-line="102" selection-start-column="24" selection-end-line="102" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -63,8 +63,8 @@
       <list>
         <option value="$PROJECT_DIR$/importer.html" />
         <option value="$PROJECT_DIR$/import.html" />
-        <option value="$PROJECT_DIR$/css/mapswipe.webflow.css" />
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/css/mapswipe.webflow.css" />
       </list>
     </option>
   </component>
@@ -338,18 +338,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/mapswipe.webflow.css">
+    <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.72549">
-          <caret line="129" column="7" selection-start-line="129" selection-start-column="6" selection-end-line="129" selection-end-column="7" />
+        <state vertical-scroll-proportion="-5.901961">
+          <caret line="119" column="12" selection-start-line="119" selection-start-column="12" selection-end-line="119" selection-end-column="12" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
+    <entry file="file://$PROJECT_DIR$/css/mapswipe.webflow.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.43586206">
-          <caret line="120" column="52" selection-start-line="120" selection-start-column="52" selection-end-line="120" selection-end-column="52" />
+        <state vertical-scroll-proportion="0.04137931">
+          <caret line="102" column="24" selection-start-line="102" selection-start-column="24" selection-end-line="102" selection-end-column="24" />
           <folding />
         </state>
       </provider>
