@@ -236,6 +236,12 @@ a:hover {
 
 .member-logo.netherlands {
   width: 50%;
+  margin-top: 5px;
+}
+
+.member-logo.bing {
+  width: 70%;
+  margin-top: 5px;
 }
 
 .section {
