@@ -52,7 +52,7 @@ a:hover {
   margin-top: -305px;
   margin-right: auto;
   margin-left: auto;
-  padding: 230px 15px 100px;
+  padding: 230px 15px 80px;
   background-image: -webkit-linear-gradient(90deg, #000 79%, transparent);
   background-image: linear-gradient(0deg, #000 79%, transparent);
   text-align: center;
@@ -328,6 +328,55 @@ a:hover {
   margin-right: 0px;
 }
 
+.photo-container {
+  width: 100%;
+  height: 100%;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  background-image: url('../images/vaccination.jpg');
+  background-position: 50% 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.explainer-container {
+  padding: 40px 30px;
+}
+
+.explainer-title {
+  margin-top: 0px;
+  margin-bottom: 15px;
+  font-weight: 300;
+}
+
+.explainer-text {
+  color: #858585;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 300;
+  letter-spacing: 0.25px;
+}
+
+.explainer-row {
+  position: relative;
+  margin-bottom: 80px;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.explainer-column {
+  height: 570px;
+}
+
+.explainer-column.photo-column {
+  padding-right: 0px;
+  padding-left: 0px;
+}
+
+.appstore-container {
+  text-align: center;
+}
+
 @media (max-width: 991px) {
   .hero-section {
     background-size: auto 600px;
@@ -353,6 +402,9 @@ a:hover {
   }
   .member-logo.giscience {
     width: 25%;
+  }
+  .explainer-column {
+    height: 890px;
   }
 }
 
@@ -381,6 +433,16 @@ a:hover {
   .teammate-container.up {
     position: static;
   }
+  .explainer-text {
+    font-size: 14px;
+    line-height: 22px;
+  }
+  .explainer-column {
+    height: auto;
+  }
+  .explainer-column.photo-column {
+    height: 250px;
+  }
 }
 
 @media (max-width: 479px) {
@@ -403,6 +465,16 @@ a:hover {
   }
   .menu-btn.w--open {
     background-color: #000;
+  }
+  .explainer-container {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+  .explainer-title {
+    font-size: 26px;
+  }
+  .explainer-column.photo-column {
+    height: 200px;
   }
 }
 

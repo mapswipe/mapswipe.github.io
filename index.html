@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- This site was created in Webflow. http://www.webflow.com-->
-<!-- Last Published: Thu Jul 14 2016 15:25:06 GMT+0000 (UTC) -->
+<!-- Last Published: Mon Jul 18 2016 00:52:50 GMT+0000 (UTC) -->
 <html data-wf-site="574807d20d1625555c1ee150" data-wf-page="574807d20d1625555c1ee151">
 <head>
   <meta charset="utf-8">
@@ -24,8 +24,8 @@
     });
   </script>
   <script type="text/javascript" src="js/modernizr.js"></script>
-  <link rel="shortcut icon" type="image/x-icon" href="https://daks2k3a4ib2z.cloudfront.net/img/favicon.ico">
-  <link rel="apple-touch-icon" href="https://daks2k3a4ib2z.cloudfront.net/img/webclip.png">
+  <link rel="shortcut icon" type="image/x-icon" href="images/favicon-32x32.png">
+  <link rel="apple-touch-icon" href="images/mapswipe_logo_only_256x256.png">
   <style>
     @keyframes animatedBackground {
     	from { background-position: 0% 0%; }
@@ -41,7 +41,7 @@
       background-color: #24db1a;
     }
       .strike {
-      	margin-top: 150px;
+        margin-top: 150px;
         display: block;
         text-align: center;
         overflow: hidden;
@@ -82,6 +82,7 @@
         .strike > span {
         	font-size: 12px;
         }
+      }
       @media screen and (max-width: 440px) {
         .hero-section {
     		animation: none;
@@ -90,7 +91,7 @@
   </style>
 </head>
 <body>
-  <div class="hero-section w-section">
+  <div class="hero-section">
     <div class="navbar w-nav" data-animation="default" data-collapse="medium" data-contain="1" data-duration="400">
       <div class="navbar-container w-container">
         <a class="mapswipe-logo w-nav-brand" href="index.html"><img class="logo" src="images/mapswipe-logo.svg" width="173">
@@ -109,19 +110,17 @@
       <div class="_4 phone-tile" id="tile-4"></div>
       <div class="_5 phone-tile" id="tile-5"></div>
       <div class="_6 phone-tile" id="tile-6"></div>
-      <div class="_7 phone-tile" id="tile-7"></div>
+      <div class="_7 phone-tile" id="tile-6"></div>
     </div>
     <div class="hero-container">
       <h1 class="hero-heading">With every swipe and tap, you help put families on the map</h1>
-      <div class="hero-subheading">Humanitarian organizations can't help people if they can't find them. MapSwipe is a mobile app that lets you search satellite imagery to help put the world's most vulnerable people on the map.
-        <br>
-        <br>
-        <br>
+      <div class="hero-subheading">Humanitarian organizations can't help people if they can't find them. MapSwipe is a mobile app that lets you search satellite imagery to help put the world's most vulnerable people on the map.</div>
+      <div class="appstore-container">
+        <a class="appstore-link w-inline-block" href="https://itunes.apple.com/us/app/mapswipe/id1133855392?ls=1&amp;mt=8"><img height="50" src="images/app-store.svg">
+        </a>
+        <a class="appstore-link last w-inline-block" href="https://play.google.com/store/apps/details?id=org.missingmaps.mapswipe"><img height="50" src="images/google-play.svg">
+        </a>
       </div>
-      <a class="appstore-link w-inline-block" href="https://itunes.apple.com/us/app/mapswipe/id1133855392?ls=1&mt=8"><img height="50" src="images/app-store.svg">
-      </a>
-      <a class="appstore-link last w-inline-block" href="https://play.google.com/store/apps/details?id=org.missingmaps.mapswipe"><img height="50" src="images/google-play.svg">
-      </a>
       <div class="w-embed">
         <div class="strike">
           <span>CREATED BY HUMANITARIANS</span>
@@ -163,13 +162,38 @@
           </a>
         </div>
         <div class="w-col w-col-3">
-          <a class="w-inline-block" href="http://bing.com" target="_blank"><img class="member-logo bing" src="images/bing.png" width="342">
+          <a class="w-inline-block" href="http://bing.com" target="_blank"><img class="bing member-logo" src="images/bing.png" width="131">
           </a>
         </div>
       </div>
     </div>
   </div>
-  <div class="footer w-section">
+  <div class="section">
+    <div class="container">
+      <div class="explainer-row w-row">
+        <div class="explainer-column photo-column w-col w-col-5">
+          <div class="photo-container"></div>
+        </div>
+        <div class="explainer-column w-col w-col-7">
+          <div class="explainer-container">
+            <h2 class="explainer-title">Why MapSwipe?</h2>
+            <p class="explainer-text">During a humanitarian crisis, it is essential to know where vulnerable people are located, yet millions around the world are not represented on any accessible map.
+              <br>
+              <br>When Medecins Sans Frontieres / Doctors Without Borders (MSF) responds to major disease outbreaks with mass vaccination campaigns, hundreds of teams have to cover enormous areas (as happened in the <a target="_blank" href="http://www.msf.org.uk/article/democratic-republic-of-congo-measles-an-epidemic-emergency">measles outbreak in the Democratic Republic of Congo last year</a>). Now, with MapSwipe, we can give vaccination campaign coordinators a super-fast snapshot of <a target="_blank" href="https://www.msf.org.uk/article/drc-saving-lives-with-remote-mapping">where the population clusters are</a>, helping them to send their teams to the locations where they are most needed to achieve maximum vaccination coverage.
+              <br>
+              <br>MapSwipe is part of&nbsp;<a target="_blank" href="http://www.missingmaps.org/">Missing Maps</a>, a collaborative project in which a large and committed community of NGOs, academic institutes, companies, and most of all individual mappers, map vulnerable areas in&nbsp;OpenStreetMap. By using MapSwipe to identify where communities are located, you also give these mappers the ability to use their talents to map the towns and villages in these areas without having to search through miles of jungle and bush to find them, saving time and helping to put valuable data into the hands of field teams even faster.</p>
+          </div>
+        </div>
+      </div>
+      <div class="appstore-container">
+        <a class="appstore-link w-inline-block" href="https://itunes.apple.com/us/app/mapswipe/id1133855392?ls=1&amp;mt=8"><img height="50" src="images/app-store.svg">
+        </a>
+        <a class="appstore-link last w-inline-block" href="https://play.google.com/store/apps/details?id=org.missingmaps.mapswipe"><img height="50" src="images/google-play.svg">
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
     <div class="w-row">
       <div class="footer-column w-col w-col-5">
         <div>MapSwipe. With every swipe and tap, you help put families on the map.</div>
