@@ -55,6 +55,7 @@
             var submissionKey = document.getElementById("submissionKey").value;
             var kml = document.getElementById("kml").value;
             var image = document.getElementById("image").value;
+            var tileServer = document.getElementById("tileServer").value;
 
             if(name.length <= 4) {
                 alert("Name must be 4 chars");
@@ -94,7 +95,8 @@
            importRef.push().set({
                 project: project,
                 kml: kml,
-                key: submissionKey
+                key: submissionKey,
+                tileServer: tileServer,
             })
         }
     </script>
@@ -179,6 +181,7 @@
                     animation: none;
                 }
             }
+        }
     </style>
 </head>
 <body>
@@ -219,8 +222,8 @@
                         <input type="text" id="name" style="color:#212121"/></p>
                 </div>
                 <div class="faq-container">
-                    <div class="faq-title">Enter Objective (E.g. Houses or Houses/Roads)</div>
-                    <p class="faq-text">Enter the name of your project (15 chars max)
+                    <div class="faq-title">Enter Objective (E.g. Houses or Roads)</div>
+                    <p class="faq-text">Enter the objective:  (15 chars max)
                         <input type="text" id="objective" style="color:#212121"/></p>
                 </div>
                 <div class="faq-container">
@@ -228,10 +231,20 @@
                     <p class="faq-text">How many people do you want to see every tile before you consider it finished?
                         (3 default) - more is recommended for harder tasks with harder to spot objects
                         <br/><select id="verificationCount">
-                            <option value="2">2</option>
+                            <option value="3">More coming soon</option>
                             <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="4">5</option>
+
+                        </select>
+                    </p>
+                </div>
+                <div class="faq-container">
+                    <div class="faq-title">Tileserver import </div>
+                    <p class="faq-text">Make sure you have permission. Google hasn't given permission yet and won't work until a proper API key is given.
+                        <br/><select id="tileServer">
+                            <option value="bing">bing</option>
+                            <option value="digital_globe">digital_globe</option>
+                            <option value="google">google</option>
+
                         </select>
                     </p>
                 </div>
