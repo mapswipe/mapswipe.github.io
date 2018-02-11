@@ -17,6 +17,17 @@
     <link rel="stylesheet" type="text/css" href="css/normalize.css">
     <link rel="stylesheet" type="text/css" href="css/webflow.css">
     <link rel="stylesheet" type="text/css" href="css/mapswipe.webflow.css">
+	
+	<!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new
+       Date().getTime(),event:'gtm.js'});var
+       f=d.getElementsByTagName(s)[0],
+       j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+           'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+   })(window,document,'script','dataLayer','GTM-KVCXJMH');</script>
+  <!-- End Google Tag Manager -->
+
+	
     <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
     <script>
         WebFont.load({
@@ -171,6 +182,11 @@
     </style>
 </head>
 <body>
+
+<!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KVCXJMH"
+                      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 <div class="hero-section w-section">
     <div class="navbar w-nav" data-animation="default" data-collapse="medium" data-contain="1" data-duration="400">
         <div class="navbar-container w-container">
@@ -216,7 +232,7 @@
                     <div class="faq-title">Verification count</div>
                     <p class="faq-text">How many people do you want to see every tile before you consider it finished?
                         (3 default) - more is recommended for harder tasks with harder to spot objects
-                        <br/><input id="verificationCount" value="3" min="3" max="10" style="color:#212121"/>
+                        <br/><input id="verificationCount" type="number" value="3" min="3" max="10" style="color:#212121"/>
                     </p>
                 </div>
 				<div class="faq-container">
@@ -231,7 +247,7 @@
                         <br/><select id="tileServer">
                             <option value="bing">bing</option>
                             <option value="digital_globe">digital_globe</option>
-                            <option value="google">google</option>
+                            <!-- <option value="google">google</option> -->
 							<option value="custom">custom</option>
 
                         </select>
