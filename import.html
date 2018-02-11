@@ -17,16 +17,6 @@
     <link rel="stylesheet" type="text/css" href="css/normalize.css">
     <link rel="stylesheet" type="text/css" href="css/webflow.css">
     <link rel="stylesheet" type="text/css" href="css/mapswipe.webflow.css">
-
-  <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new
-       Date().getTime(),event:'gtm.js'});var
-       f=d.getElementsByTagName(s)[0],
-       j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-           'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-   })(window,document,'script','dataLayer','GTM-KVCXJMH');</script>
-  <!-- End Google Tag Manager -->
-
     <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
     <script>
         WebFont.load({
@@ -41,20 +31,18 @@
         // Initialize Firebase
         // TODO: Replace with your project's customized code snippet
         var config = {
-            apiKey: "AIzaSyB_0YpjpzQ4zALUa78jREXnryVanus1bew",
-            authDomain: "msf-mapswipe.firebaseapp.com",
-            databaseURL: "https://msf-mapswipe.firebaseio.com",
-            storageBucket: "msf-mapswipe.appspot.com",
+            apiKey: "AIzaSyAU1G36SyWteX9QP2m4SIMuvOOpR8Jn1NQ",
+            authDomain: "dev-mapswipe.firebaseapp.com",
+            databaseURL: "https://dev-mapswipe.firebaseio.com",
+            storageBucket: "dev-mapswipe.appspot.com",
         };
         firebase.initializeApp(config);
-
         firebase.auth().signInAnonymously().catch(function(error) {
             // Handle Errors here.
             var errorCode = error.code;
             var errorMessage = error.message;
             // ...
         });
-
         var db = firebase.database();
         var importRef = db.ref("/imports")
         var submitInfo = function() {
@@ -66,7 +54,8 @@
             var kml = document.getElementById("kml").value;
             var image = document.getElementById("image").value;
             var tileServer = document.getElementById("tileServer").value;
-
+            var zoomlevel = document.getElementById("zoomlevel").value;
+            var customTileServerUrl = document.getElementById("customTileServerUrl").value;
             if(name.length <= 4) {
                 alert("Name must be 4 chars");
                 return;
@@ -98,15 +87,14 @@
                 state: 0,
                 contributors: 0,
                 progress: 0,
-
             }
-
-
            importRef.push().set({
                 project: project,
                 kml: kml,
                 key: submissionKey,
+				zoomlevel: zoomlevel,
                 tileServer: tileServer,
+                customTileServerUrl: customTileServerUrl,
             })
         }
     </script>
@@ -123,19 +111,15 @@
                 background-position: 100% 0%;
             }
         }
-
         .hero-section {
             animation: animatedBackground 250s linear infinite;
         }
-
         .phone-tile {
             transition: background-color 1s cubic-bezier(0, 1, 1, 1);
         }
-
         .show-tile {
             background-color: #24db1a;
         }
-
         .strike {
             margin-top: 150px;
             display: block;
@@ -144,7 +128,6 @@
             white-space: nowrap;
             opacity: .7;
         }
-
         .strike > span {
             position: relative;
             display: inline-block;
@@ -152,7 +135,6 @@
             letter-spacing: 5px;
             font-weight: 300;
         }
-
         .strike > span:before,
         .strike > span:after {
             content: "";
@@ -162,30 +144,24 @@
             height: 1px;
             background: #FFF;
         }
-
         .strike > span:before {
             right: 100%;
             margin-right: 25px;
         }
-
         .strike > span:after {
             left: 100%;
             margin-left: 25px;
         }
-
         .no-top-margin {
             margin-top: 0px;
         }
-
         @media screen and (max-width: 320px) {
             .phone-container {
                 right: 4%;
             }
-
             .strike > span {
                 font-size: 12px;
             }
-
             @media screen and (max-width: 420px) {
                 .hero-section {
                     animation: none;
@@ -195,12 +171,6 @@
     </style>
 </head>
 <body>
-
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KVCXJMH"
-                      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-
 <div class="hero-section w-section">
     <div class="navbar w-nav" data-animation="default" data-collapse="medium" data-contain="1" data-duration="400">
         <div class="navbar-container w-container">
@@ -246,11 +216,13 @@
                     <div class="faq-title">Verification count</div>
                     <p class="faq-text">How many people do you want to see every tile before you consider it finished?
                         (3 default) - more is recommended for harder tasks with harder to spot objects
-                        <br/><select id="verificationCount">
-                            <option value="3">More coming soon</option>
-                            <option value="3">3</option>
-
-                        </select>
+                        <br/><input id="verificationCount" value="3" min="3" max="10" style="color:#212121"/>
+                    </p>
+                </div>
+				<div class="faq-container">
+                    <div class="faq-title">Zoomlevel</div>
+                    <p class="faq-text">We use the the Tile Map Service zoomlevels. Please check for your area which zoomlevel is available.E.g. Bing imagery is available at zoomlevel 18 for most regions. Zoomlevel 19 is not often available. If you use a custom tileserver you may have even higher zoomlevels.
+                        <br/><input id="zoomlevel" type="number" value="18" min="16" max="24" style="color:#212121"/>
                     </p>
                 </div>
                 <div class="faq-container">
@@ -260,8 +232,15 @@
                             <option value="bing">bing</option>
                             <option value="digital_globe">digital_globe</option>
                             <option value="google">google</option>
+							<option value="custom">custom</option>
 
                         </select>
+                    </p>
+                </div>
+                <div class="faq-container">
+                    <div class="faq-title">Custom Tileserver URL</div>
+                    <p class="faq-text">Make sure you have permission. Add a custom tileserver URL that uses {z}, {x} and {y} as placeholders and that already includes the api key.
+                        <br/><input type="text" id="customTileServerUrl" style="color:#212121"/>
                     </p>
                 </div>
                 <div class="faq-container">
