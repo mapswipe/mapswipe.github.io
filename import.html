@@ -46,6 +46,19 @@
             databaseURL: "https://msf-mapswipe.firebaseio.com",
             storageBucket: "msf-mapswipe.appspot.com",
         };
+
+        function validateKML(kmlString) {
+            var parser = new DOMParser();
+            try {
+                var doc = parser.parseFromString(kmlString, 'text/xml');
+                return true;
+            }
+            catch (e) {
+                console.log(e);
+                return false;
+            }
+        }
+
         firebase.initializeApp(config);
 
         firebase.auth().signInAnonymously().catch(function(error) {
@@ -81,6 +94,9 @@
                 return;
             } else if(kml.length <= 3) {
                 alert("KML not entered");
+                return;
+            } else if(!validateKML(kml)) {
+                alert("Entered KML is invalid, try re-exporting it or re-pasting it");
                 return;
             } else if(image.length <= 3 || image.indexOf(".jpg") == -1 && image.indexOf(".png") === -1 && image.indexOf(".jpeg") === -1) {
                 alert("Make sure your image link ends with .jpg, .jpg, or .jpeg");
