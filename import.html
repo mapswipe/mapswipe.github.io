@@ -50,7 +50,15 @@
         function validateKML(kmlString) {
             var parser = new DOMParser();
             try {
+                // Handle the case where the XML is invalid with either an
+                // exception or returned error element
                 var doc = parser.parseFromString(kmlString, 'text/xml');
+
+                // https://developer.mozilla.org/en-US/docs/Web/API/DOMParser#Parsing_XML
+                if (doc.children[0].tagName === 'parsererror'){
+                    return false;
+                }
+                // Otherwise, return true
                 return true;
             }
             catch (e) {
@@ -96,7 +104,7 @@
                 alert("KML not entered");
                 return;
             } else if(!validateKML(kml)) {
-                alert("Entered KML is invalid, try re-exporting it or re-pasting it");
+                alert("Entered KML is invalid, try re-exporting or re-pasting it");
                 return;
             } else if(image.length <= 3 || image.indexOf(".jpg") == -1 && image.indexOf(".png") === -1 && image.indexOf(".jpeg") === -1) {
                 alert("Make sure your image link ends with .jpg, .jpg, or .jpeg");
