@@ -17,8 +17,8 @@
     <link rel="stylesheet" type="text/css" href="css/normalize.css">
     <link rel="stylesheet" type="text/css" href="css/webflow.css">
     <link rel="stylesheet" type="text/css" href="css/mapswipe.webflow.css">
-	
-	<!-- Google Tag Manager -->
+
+  <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new
        Date().getTime(),event:'gtm.js'});var
        f=d.getElementsByTagName(s)[0],
@@ -27,7 +27,6 @@
    })(window,document,'script','dataLayer','GTM-KVCXJMH');</script>
   <!-- End Google Tag Manager -->
 
-	
     <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
     <script>
         WebFont.load({
@@ -47,6 +46,24 @@
             databaseURL: "https://msf-mapswipe.firebaseio.com",
             storageBucket: "msf-mapswipe.appspot.com",
         };
+        function validateKML(kmlString) {
+            var parser = new DOMParser();
+            try {
+                // Handle the case where the XML is invalid with either an
+                // exception or returned error element
+                var doc = parser.parseFromString(kmlString, 'text/xml');
+                // https://developer.mozilla.org/en-US/docs/Web/API/DOMParser#Parsing_XML
+                if (doc.children[0].tagName === 'parsererror'){
+                    return false;
+                }
+                // Otherwise, return true
+                return true;
+            }
+            catch (e) {
+                console.log(e);
+                return false;
+            }
+        }
         firebase.initializeApp(config);
         firebase.auth().signInAnonymously().catch(function(error) {
             // Handle Errors here.
@@ -65,8 +82,6 @@
             var kml = document.getElementById("kml").value;
             var image = document.getElementById("image").value;
             var tileServer = document.getElementById("tileServer").value;
-            var zoomlevel = document.getElementById("zoomlevel").value;
-            var customTileServerUrl = document.getElementById("customTileServerUrl").value;
             if(name.length <= 4) {
                 alert("Name must be 4 chars");
                 return;
@@ -81,6 +96,9 @@
                 return;
             } else if(kml.length <= 3) {
                 alert("KML not entered");
+                return;
+            } else if(!validateKML(kml)) {
+                alert("Entered KML is invalid, try re-exporting or re-pasting it");
                 return;
             } else if(image.length <= 3 || image.indexOf(".jpg") == -1 && image.indexOf(".png") === -1 && image.indexOf(".jpeg") === -1) {
                 alert("Make sure your image link ends with .jpg, .jpg, or .jpeg");
@@ -103,9 +121,7 @@
                 project: project,
                 kml: kml,
                 key: submissionKey,
-				zoomlevel: zoomlevel,
                 tileServer: tileServer,
-                customTileServerUrl: customTileServerUrl,
             })
         }
     </script>
@@ -183,10 +199,11 @@
 </head>
 <body>
 
-<!-- Google Tag Manager (noscript) -->
+    <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KVCXJMH"
                       height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
+
 <div class="hero-section w-section">
     <div class="navbar w-nav" data-animation="default" data-collapse="medium" data-contain="1" data-duration="400">
         <div class="navbar-container w-container">
@@ -232,13 +249,11 @@
                     <div class="faq-title">Verification count</div>
                     <p class="faq-text">How many people do you want to see every tile before you consider it finished?
                         (3 default) - more is recommended for harder tasks with harder to spot objects
-                        <br/><input id="verificationCount" type="number" value="3" min="3" max="10" style="color:#212121"/>
-                    </p>
-                </div>
-				<div class="faq-container">
-                    <div class="faq-title">Zoomlevel</div>
-                    <p class="faq-text">We use the the Tile Map Service zoomlevels. Please check for your area which zoomlevel is available.E.g. Bing imagery is available at zoomlevel 18 for most regions. Zoomlevel 19 is not often available. If you use a custom tileserver you may have even higher zoomlevels.
-                        <br/><input id="zoomlevel" type="number" value="18" min="16" max="24" style="color:#212121"/>
+                        <br/><select id="verificationCount">
+                            <option value="3">More coming soon</option>
+                            <option value="3">3</option>
+
+                        </select>
                     </p>
                 </div>
                 <div class="faq-container">
@@ -247,21 +262,14 @@
                         <br/><select id="tileServer">
                             <option value="bing">bing</option>
                             <option value="digital_globe">digital_globe</option>
-                            <!-- <option value="google">google</option> -->
-							<option value="custom">custom</option>
+                            <option value="google">google</option>
 
                         </select>
                     </p>
                 </div>
                 <div class="faq-container">
-                    <div class="faq-title">Custom Tileserver URL</div>
-                    <p class="faq-text">Make sure you have permission. Add a custom tileserver URL that uses {z}, {x} and {y} as placeholders and that already includes the api key.
-                        <br/><input type="text" id="customTileServerUrl" style="color:#212121"/>
-                    </p>
-                </div>
-                <div class="faq-container">
                     <div class="faq-title">Enter Description</div>
-                    <p class="faq-text">Enter the description for your project. (3-5 sentences).
+                    <p class="faq-text">Enter the name of your project (15 chars max)
                         <textarea id="description" style="color:#212121"></textarea></p>
                 </div>
                 <div class="faq-container">
