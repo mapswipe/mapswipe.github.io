@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<!-- This site was created in Webflow. http://www.webflow.com-->
+<!-- Last Published: Wed Jul 13 2016 22:45:08 GMT+0000 (UTC) -->
+<html data-wf-site="574807d20d1625555c1ee150" data-wf-page="577fcec769b57ef60a37539a">
+<head>
+    <meta charset="utf-8">
+    <title>Importer | MapSwipe</title>
+    <meta name="description"
+          content="Humanitarian organisations can&#39;t help people if they can&#39;t find them. MapSwipe is a mobile app that lets you search satellite imagery to help put the world&#39;s most vulnerable people on the map.">
+    <meta property="og:title" content="Add Project | MapSwipe">
+    <meta property="og:description"
+          content="Humanitarian organisations can&#39;t help people if they can&#39;t find them. MapSwipe is a mobile app that lets you search satellite imagery to help put the world&#39;s most vulnerable people on the map.">
+    <meta property="og:image" content="http://mapswipe.org/images/og-img.jpg">
+    <meta name="twitter:card" content="summary">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Webflow">
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="css/webflow.css">
+    <link rel="stylesheet" type="text/css" href="css/mapswipe.webflow.css">
+	
+	<!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new
+       Date().getTime(),event:'gtm.js'});var
+       f=d.getElementsByTagName(s)[0],
+       j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+           'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+   })(window,document,'script','dataLayer','GTM-KVCXJMH');</script>
+  <!-- End Google Tag Manager -->
+
+	
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
+    <script>
+        WebFont.load({
+            google: {
+                families: ["Roboto:300,regular,500,700"]
+            }
+        });
+    </script>
+    <script type="text/javascript">
+        //auto expand textarea
+        function adjust_textarea(h) {
+            h.style.height = "20px";
+            h.style.height = (h.scrollHeight)+"px";
+        }
+
+        function displayProjectTypeFormular(s) {
+            projectType = s.value
+            if (projectType == 1) {
+                x = document.getElementById("BuildAreaProjectFormular")
+                x.style.display = "block";
+                y = document.getElementById("FootprintProjectFormular")
+                y.style.display = "None"
+            } else if (projectType == 2) {
+                x = document.getElementById("FootprintProjectFormular")
+                x.style.display = "block"
+                y = document.getElementById("BuildAreaProjectFormular")
+                y.style.display = "None"
+            }
+        }
+
+        function displayTileServerBuildArea (t) {
+            tileServer = t.value
+            if (tileServer == "custom") {
+                x = document.getElementById("tileServerUrlFieldBuildArea")
+                x.style.display = "block";
+                y = document.getElementById("tileServerLayerNameFieldBuildArea")
+                y.style.display = "None";
+            } else if (tileServer == "sinergise") {
+                x = document.getElementById("tileServerUrlFieldBuildArea")
+                x.style.display = "None";
+                y = document.getElementById("tileServerLayerNameFieldBuildArea")
+                y.style.display = "block";
+            } else {
+                x = document.getElementById("tileServerUrlFieldBuildArea")
+                x.style.display = "None";
+                y = document.getElementById("tileServerLayerNameFieldBuildArea")
+                y.style.display = "None";
+            }
+        }
+
+        function displayTileServerFootprint (t) {
+            tileServer = t.value
+            if (tileServer == "custom") {
+                x = document.getElementById("tileServerUrlFieldFootprint")
+                x.style.display = "block";
+                y = document.getElementById("tileServerLayerNameFieldFootprint")
+                y.style.display = "None";
+            } else if (tileServer == "sinergise") {
+                x = document.getElementById("tileServerUrlFieldFootprint")
+                x.style.display = "None";
+                y = document.getElementById("tileServerLayerNameFieldFootprint")
+                y.style.display = "block";
+            } else {
+                x = document.getElementById("tileServerUrlFieldFootprint")
+                x.style.display = "None";
+                y = document.getElementById("tileServerLayerNameFieldFootprint")
+                y.style.display = "None";
+            }
+        }
+     </script>
+
+    <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase.js"></script>
+    <script type="text/javascript" src="js/dev-mapswipe_import.js"></script>
+    <script type="text/javascript" src="js/modernizr.js"></script>
+
+    <link rel="shortcut icon" type="image/x-icon" href="https://daks2k3a4ib2z.cloudfront.net/img/favicon.ico">
+    <link rel="apple-touch-icon" href="https://daks2k3a4ib2z.cloudfront.net/img/webclip.png">
+    <style>
+        @keyframes animatedBackground {
+            from {
+                background-position: 0% 0%;
+            }
+            to {
+                background-position: 100% 0%;
+            }
+        }
+        .hero-section {
+            animation: animatedBackground 250s linear infinite;
+        }
+        .phone-tile {
+            transition: background-color 1s cubic-bezier(0, 1, 1, 1);
+        }
+        .show-tile {
+            background-color: #24db1a;
+        }
+        .strike {
+            margin-top: 150px;
+            display: block;
+            text-align: center;
+            overflow: hidden;
+            white-space: nowrap;
+            opacity: .7;
+        }
+        .strike > span {
+            position: relative;
+            display: inline-block;
+            color: #FFF;
+            letter-spacing: 5px;
+            font-weight: 300;
+        }
+        .strike > span:before,
+        .strike > span:after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            width: 150%;
+            height: 1px;
+            background: #FFF;
+        }
+        .strike > span:before {
+            right: 100%;
+            margin-right: 25px;
+        }
+        .strike > span:after {
+            left: 100%;
+            margin-left: 25px;
+        }
+        .no-top-margin {
+            margin-top: 0px;
+        }
+        @media screen and (max-width: 320px) {
+            .phone-container {
+                right: 4%;
+            }
+            .strike > span {
+                font-size: 12px;
+            }
+            @media screen and (max-width: 420px) {
+                .hero-section {
+                    animation: none;
+                }
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KVCXJMH"
+                      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+<div class="hero-section w-section">
+    <div class="navbar w-nav" data-animation="default" data-collapse="medium" data-contain="1" data-duration="400">
+        <div class="navbar-container w-container">
+            <a class="mapswipe-logo w-nav-brand" href="index.html"><img class="logo" src="images/mapswipe-logo.svg"
+                                                                        width="173">
+            </a>
+            <nav class="nav-menu w-nav-menu" role="navigation"><a class="navlink w-nav-link"
+                                                                  href="http://www.missingmaps.org/events/"
+                                                                  target="_blank">events</a><a
+                    class="navlink w-nav-link" href="faq.html">FAQ</a><a class="navlink w-nav-link" href="about.html">ABOUT</a><a
+                    class="navlink w-nav-link" href="http://www.missingmaps.org/blog/2016/07/14/mapswipe/"
+                    target="_blank">BLOG</a>
+            </nav>
+            <div class="menu-btn w-nav-button">
+                <div class="w-icon-nav-menu"></div>
+            </div>
+        </div>
+    </div>
+    <div class="hero-container inner-page">
+        <h1 class="hero-heading">Add Your Project</h1>
+        <div class="w-embed">
+            <div class="strike no-top-margin">
+                <span>GET RESULTS FROM OUR COMMUNITY</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="section w-section">
+    <div class="container">
+        <div class="faq-row w-row">
+            <div class="w-col w-col-6">
+                <!--Let's start with collecting the basic information -->
+                <div class="faq-container">
+                    <div class="faq-title">Basic Project Information</div>
+
+                    <form class="form-style-7">
+                        <ul>
+                        <li>
+                            <label for="name">Name</label>
+                            <input type="text" name="name" id="name" maxlength="25" required>
+                            <span>Enter the name of your project (25 chars max).</span>
+                        </li>
+                        <li>
+                            <label for="objective">Objective</label>
+                            <input type="text" name="objective" id="objective" maxlength="15" required>
+                            <span>Enter the objective of your project (15 chars max).</span>
+                        </li>
+                        <li>
+                            <label for="projectType">Project Type</label>
+                            <select name="projectType" id="projectType" onchange="displayProjectTypeFormular(this)">
+                                <option value="1">Build Area</option>
+                                <option value="2">Footprint</option>
+                            </select>
+                            <span>Select the type of your project.</span>
+                        </li>
+                        <li>
+                            <label for="description">Description</label>
+                            <textarea name="description" id="description" onkeyup="adjust_textarea(this)"></textarea>
+                            <span>Enter the description for your project. (3-5 sentences). </span>
+                        </li>
+                        <li>
+                            <label for="image">Direct Image Link</label>
+                            <input type="text" name="image" id="image" required>
+                            <span>Make sure you have the rights to use this image. It should end with  .jpg or .png.</span>
+                        </li>
+                        <li>
+                            <label for="verificationCount">Verification Count</label>
+                            <input type="number" name="verificationCount" id="verificationCount" value="3" min="3" max="10">
+                            <span>How many people do you want to see every tile before you consider it finished?
+                        (default is 3 - more is recommended for harder tasks)</span>
+                        </li>
+                        <li>
+                            <label for="submissionKey">Submission Key</label>
+                            <input type="text" name="submissionKey" id="submissionKey" required>
+                            <span>You should get yours from Jorieke Vincke if you don't have one.</span>
+                        </li>
+                        <li></li>
+                        </ul>
+                    </form>
+                </div>
+            </div>
+            <div class="w-col w-col-6">
+                <div class="faq-container">
+                    <div class="faq-title">Project Type Specific Information</div>
+
+                    <form class="form-style-7" style="display:block" id="BuildAreaProjectFormular">
+                        <ul>
+                        <li>
+                            <label for="tileServerBuildArea">Tile Server Name</label>
+                            <select name="tileServerBuildArea" id="tileServerBuildArea" onchange="displayTileServerBuildArea(this)">
+                                <option value="bing">Bing</option>
+                                <option value="digital_globe">Digital Globe</option>
+                                <option value="sinergise">Sinergise</option>
+                                <option value="custom">Custom</option>
+                            </select>
+                            <span>Select the tile server providing satellite imagery tiles for your project. Make sure you have permission. Google hasn't given permission yet and won't work until a proper API key is given.</span>
+                        </li>
+                        <li style="display:None" id="tileServerUrlFieldBuildArea">
+                            <label for="tileServerUrlBuildArea">Custom Tile Server URL</label>
+                            <input type="text" name="tileServerUrlBuildArea" id="tileServerUrlBuildArea">
+                            <span>Make sure you have permission. Add a custom tile server URL that uses {z}, {x} and {y} as placeholders and that already includes the api key.</span>
+                        </li>
+                        <li style="display:None" id="tileServerLayerNameFieldBuildArea">
+                            <label for="tileServerLayerNameBuildArea">WMTS Layer Name</label>
+                            <input type="text" name="tileServerLayerNameBuildArea" id="tileServerLayerNameBuildArea">
+                            <span>Enter the name of the layer of the WMTS offered by Sinergise.</span>
+                        </li>
+                        <li>
+                            <label for="zoomLevel">Zoom Level</label>
+                            <input type="number" name="zoomLevel" id="zoomLevel" value="18" min="16" max="24">
+                            <span>We use the Tile Map Service zoom levels. Please check for your area which zoom level is available. For example, Bing imagery is available at zoomlevel 18 for most regions. If you use a custom tile server you may be able to use even higher zoom levels.</span>
+                        </li>
+                        <li>
+                            <label for="kml">KML File Content</label>
+                            <textarea name="kml" id="kml" onkeyup="adjust_textarea(this)"></textarea>
+                            <span>Right click your KML file, copy the contents, and paste it in here.</span>
+                        </li>
+                        <li>
+                            <input type="button" style="" id="submit" value="Submit" onClick="submitInfo()">
+                        </li>
+                        </ul>
+                    </form>
+
+                    <form class="form-style-7" style="display:None" id="FootprintProjectFormular">
+                        <ul>
+                        <li>
+                            <label for="tileServerFootprint">Tile Server Name</label>
+                            <select name="tileServerFootprint" id="tileServerFootprint" onchange="displayTileServerFootprint(this)">
+                                <option value="bing">Bing</option>
+                                <option value="digital_globe">Digital Globe</option>
+                                <option value="sinergise">Sinergise</option>
+                                <option value="custom">Custom</option>
+                            </select>
+                            <span>Select the tile server providing satellite imagery tiles for your project. Make sure you have permission. Google hasn't given permission yet and won't work until a proper API key is given.</span>
+                        </li>
+                        <li style="display:None" id="tileServerUrlFieldFootprint">
+                            <label for="tileServerUrlFootprint">Custom Tile Server URL</label>
+                            <input type="text" name="tileServerUrlFootprint" id="tileServerUrlFootprint">
+                            <span>Make sure you have permission. Add a custom tile server URL that uses {z}, {x} and {y} as placeholders and that already includes the api key.</span>
+                        </li>
+                        <li style="display:None" id="tileServerLayerNameFieldFootprint">
+                            <label for="tileServerLayerNameFootprint">WMTS Layer Name</label>
+                            <input type="text" name="tileServerLayerNameFootprint" id="tileServerLayerNameFootprint">
+                            <span>Enter the name of the layer of the WMTS offered by Sinergise.</span>
+                        </li>
+                        <li>
+                            <label for="inputGeometries">Input Geometries File (Direct Link)</label>
+                            <input type="text" name="inputGeometries" id="inputGeometries">
+                            <span>Provide a direct link to a GeoJSON file containing your building footprint geometries.</span>
+                        </li>
+                        <li>
+                            <input type="button" style="" id="submit" value="Submit" onClick="submitInfo()">
+                        </li>
+                        </ul>
+                    </form>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+</div>
+
+<div class="footer w-section">
+    <div class="w-row">
+        <div class="footer-column w-col w-col-5">
+            <div>MapSwipe. With every swipe and tap, you help put families on the map.</div>
+        </div>
+        <div class="footer-column w-col w-col-2">
+            <a class="social-link w-inline-block" href="https://www.facebook.com/MissingMapsProject"
+               target="_blank"><img src="images/fb.svg" width="25">
+            </a>
+            <a class="social-link w-inline-block" href="https://twitter.com/TheMissingMaps" target="_blank"><img
+                    src="images/twitter.svg" width="25">
+            </a>
+        </div>
+        <div class="w-col w-col-5">
+            <div class="footer-column last-footer">Copyright © 2016 MapSwipe</div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script type="text/javascript" src="js/webflow.js"></script>
+<!--[if lte IE 9]>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif]-->
+</body>
+</html>

@@ -103,9 +103,6 @@
             } else if(kml.length <= 3) {
                 alert("KML not entered");
                 return;
-            } else if(!validateKML(kml)) {
-                alert("Entered KML is invalid, try re-exporting or re-pasting it");
-                return;
             } else if(image.length <= 3 || image.indexOf(".jpg") == -1 && image.indexOf(".png") === -1 && image.indexOf(".jpeg") === -1) {
                 alert("Make sure your image link ends with .jpg, .jpg, or .jpeg");
                 return;
