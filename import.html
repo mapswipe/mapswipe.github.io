@@ -46,12 +46,14 @@
             databaseURL: "https://msf-mapswipe.firebaseio.com",
             storageBucket: "msf-mapswipe.appspot.com",
         };
+
         function validateKML(kmlString) {
             var parser = new DOMParser();
             try {
                 // Handle the case where the XML is invalid with either an
                 // exception or returned error element
                 var doc = parser.parseFromString(kmlString, 'text/xml');
+
                 // https://developer.mozilla.org/en-US/docs/Web/API/DOMParser#Parsing_XML
                 if (doc.children[0].tagName === 'parsererror'){
                     return false;
@@ -64,13 +66,16 @@
                 return false;
             }
         }
+
         firebase.initializeApp(config);
+
         firebase.auth().signInAnonymously().catch(function(error) {
             // Handle Errors here.
             var errorCode = error.code;
             var errorMessage = error.message;
             // ...
         });
+
         var db = firebase.database();
         var importRef = db.ref("/imports")
         var submitInfo = function() {
@@ -82,6 +87,7 @@
             var kml = document.getElementById("kml").value;
             var image = document.getElementById("image").value;
             var tileServer = document.getElementById("tileServer").value;
+
             if(name.length <= 4) {
                 alert("Name must be 4 chars");
                 return;
@@ -96,9 +102,6 @@
                 return;
             } else if(kml.length <= 3) {
                 alert("KML not entered");
-                return;
-            } else if(!validateKML(kml)) {
-                alert("Entered KML is invalid, try re-exporting or re-pasting it");
                 return;
             } else if(image.length <= 3 || image.indexOf(".jpg") == -1 && image.indexOf(".png") === -1 && image.indexOf(".jpeg") === -1) {
                 alert("Make sure your image link ends with .jpg, .jpg, or .jpeg");
@@ -116,7 +119,10 @@
                 state: 0,
                 contributors: 0,
                 progress: 0,
+
             }
+
+
            importRef.push().set({
                 project: project,
                 kml: kml,
@@ -138,15 +144,19 @@
                 background-position: 100% 0%;
             }
         }
+
         .hero-section {
             animation: animatedBackground 250s linear infinite;
         }
+
         .phone-tile {
             transition: background-color 1s cubic-bezier(0, 1, 1, 1);
         }
+
         .show-tile {
             background-color: #24db1a;
         }
+
         .strike {
             margin-top: 150px;
             display: block;
@@ -155,6 +165,7 @@
             white-space: nowrap;
             opacity: .7;
         }
+
         .strike > span {
             position: relative;
             display: inline-block;
@@ -162,6 +173,7 @@
             letter-spacing: 5px;
             font-weight: 300;
         }
+
         .strike > span:before,
         .strike > span:after {
             content: "";
@@ -171,24 +183,30 @@
             height: 1px;
             background: #FFF;
         }
+
         .strike > span:before {
             right: 100%;
             margin-right: 25px;
         }
+
         .strike > span:after {
             left: 100%;
             margin-left: 25px;
         }
+
         .no-top-margin {
             margin-top: 0px;
         }
+
         @media screen and (max-width: 320px) {
             .phone-container {
                 right: 4%;
             }
+
             .strike > span {
                 font-size: 12px;
             }
+
             @media screen and (max-width: 420px) {
                 .hero-section {
                     animation: none;
