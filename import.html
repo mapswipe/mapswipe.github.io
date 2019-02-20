@@ -18,7 +18,7 @@
     <link rel="stylesheet" type="text/css" href="css/webflow.css">
     <link rel="stylesheet" type="text/css" href="css/mapswipe.webflow.css">
 
-  <!-- Google Tag Manager -->
+	<!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new
        Date().getTime(),event:'gtm.js'});var
        f=d.getElementsByTagName(s)[0],
@@ -26,6 +26,7 @@
            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
    })(window,document,'script','dataLayer','GTM-KVCXJMH');</script>
   <!-- End Google Tag Manager -->
+
 
     <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
     <script>
@@ -35,104 +36,73 @@
             }
         });
     </script>
+    <script type="text/javascript">
+        //auto expand textarea
+        function adjust_textarea(h) {
+            h.style.height = "20px";
+            h.style.height = (h.scrollHeight)+"px";
+        }
+
+        function displayProjectTypeFormular(s) {
+            projectType = s.value
+            if (projectType == 1) {
+                x = document.getElementById("BuildAreaProjectFormular")
+                x.style.display = "block";
+                y = document.getElementById("FootprintProjectFormular")
+                y.style.display = "None"
+            } else if (projectType == 2) {
+                x = document.getElementById("FootprintProjectFormular")
+                x.style.display = "block"
+                y = document.getElementById("BuildAreaProjectFormular")
+                y.style.display = "None"
+            }
+        }
+
+        function displayTileServerBuildArea (t) {
+            tileServer = t.value
+            if (tileServer == "custom") {
+                x = document.getElementById("tileServerUrlFieldBuildArea")
+                x.style.display = "block";
+                y = document.getElementById("tileServerLayerNameFieldBuildArea")
+                y.style.display = "None";
+            } else if (tileServer == "sinergise") {
+                x = document.getElementById("tileServerUrlFieldBuildArea")
+                x.style.display = "None";
+                y = document.getElementById("tileServerLayerNameFieldBuildArea")
+                y.style.display = "block";
+            } else {
+                x = document.getElementById("tileServerUrlFieldBuildArea")
+                x.style.display = "None";
+                y = document.getElementById("tileServerLayerNameFieldBuildArea")
+                y.style.display = "None";
+            }
+        }
+
+        function displayTileServerFootprint (t) {
+            tileServer = t.value
+            if (tileServer == "custom") {
+                x = document.getElementById("tileServerUrlFieldFootprint")
+                x.style.display = "block";
+                y = document.getElementById("tileServerLayerNameFieldFootprint")
+                y.style.display = "None";
+            } else if (tileServer == "sinergise") {
+                x = document.getElementById("tileServerUrlFieldFootprint")
+                x.style.display = "None";
+                y = document.getElementById("tileServerLayerNameFieldFootprint")
+                y.style.display = "block";
+            } else {
+                x = document.getElementById("tileServerUrlFieldFootprint")
+                x.style.display = "None";
+                y = document.getElementById("tileServerLayerNameFieldFootprint")
+                y.style.display = "None";
+            }
+        }
+     </script>
 
     <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase.js"></script>
-    <script>
-        // Initialize Firebase
-        // TODO: Replace with your project's customized code snippet
-        var config = {
-            apiKey: "AIzaSyB_0YpjpzQ4zALUa78jREXnryVanus1bew",
-            authDomain: "msf-mapswipe.firebaseapp.com",
-            databaseURL: "https://msf-mapswipe.firebaseio.com",
-            storageBucket: "msf-mapswipe.appspot.com",
-        };
-
-        function validateKML(kmlString) {
-            var parser = new DOMParser();
-            try {
-                // Handle the case where the XML is invalid with either an
-                // exception or returned error element
-                var doc = parser.parseFromString(kmlString, 'text/xml');
-
-                // https://developer.mozilla.org/en-US/docs/Web/API/DOMParser#Parsing_XML
-                if (doc.children[0].tagName === 'parsererror'){
-                    return false;
-                }
-                // Otherwise, return true
-                return true;
-            }
-            catch (e) {
-                console.log(e);
-                return false;
-            }
-        }
-
-        firebase.initializeApp(config);
-
-        firebase.auth().signInAnonymously().catch(function(error) {
-            // Handle Errors here.
-            var errorCode = error.code;
-            var errorMessage = error.message;
-            // ...
-        });
-
-        var db = firebase.database();
-        var importRef = db.ref("/imports")
-        var submitInfo = function() {
-            var name = document.getElementById("name").value;
-            var objective = document.getElementById("objective").value;
-            var verificationCount = document.getElementById("verificationCount").value;
-            var description = document.getElementById("description").value;
-            var submissionKey = document.getElementById("submissionKey").value;
-            var kml = document.getElementById("kml").value;
-            var image = document.getElementById("image").value;
-            var tileServer = document.getElementById("tileServer").value;
-
-            if(name.length <= 4) {
-                alert("Name must be 4 chars");
-                return;
-            } else if(objective.length <= 3) {
-                alert("Objective must be 3 chars");
-                return;
-            } else if(description.length <= 10) {
-                alert("Description must be 10 chars");
-                return;
-            } else if(submissionKey.length <= 3) {
-                alert("submission key must be entered");
-                return;
-            } else if(kml.length <= 3) {
-                alert("KML not entered");
-                return;
-            } else if(image.length <= 3 || image.indexOf(".jpg") == -1 && image.indexOf(".png") === -1 && image.indexOf(".jpeg") === -1) {
-                alert("Make sure your image link ends with .jpg, .jpg, or .jpeg");
-                return;
-            } else {
-                alert("Submitted project! It can take up to an hour for your project to appear.");
-            }
-            var project = {
-                name: name,
-                lookFor: objective,
-                verificationCount: verificationCount,
-                projectDetails: description,
-                image: image,
-                isFeatured: false,
-                state: 0,
-                contributors: 0,
-                progress: 0,
-
-            }
-
-
-           importRef.push().set({
-                project: project,
-                kml: kml,
-                key: submissionKey,
-                tileServer: tileServer,
-            })
-        }
-    </script>
-
+    <script type="text/javascript" src="js/mapswipe_import.js"></script>
     <script type="text/javascript" src="js/modernizr.js"></script>
+
     <link rel="shortcut icon" type="image/x-icon" href="https://daks2k3a4ib2z.cloudfront.net/img/favicon.ico">
     <link rel="apple-touch-icon" href="https://daks2k3a4ib2z.cloudfront.net/img/webclip.png">
     <style>
@@ -144,19 +114,15 @@
                 background-position: 100% 0%;
             }
         }
-
         .hero-section {
             animation: animatedBackground 250s linear infinite;
         }
-
         .phone-tile {
             transition: background-color 1s cubic-bezier(0, 1, 1, 1);
         }
-
         .show-tile {
             background-color: #24db1a;
         }
-
         .strike {
             margin-top: 150px;
             display: block;
@@ -165,7 +131,6 @@
             white-space: nowrap;
             opacity: .7;
         }
-
         .strike > span {
             position: relative;
             display: inline-block;
@@ -173,7 +138,6 @@
             letter-spacing: 5px;
             font-weight: 300;
         }
-
         .strike > span:before,
         .strike > span:after {
             content: "";
@@ -183,30 +147,24 @@
             height: 1px;
             background: #FFF;
         }
-
         .strike > span:before {
             right: 100%;
             margin-right: 25px;
         }
-
         .strike > span:after {
             left: 100%;
             margin-left: 25px;
         }
-
         .no-top-margin {
             margin-top: 0px;
         }
-
         @media screen and (max-width: 320px) {
             .phone-container {
                 right: 4%;
             }
-
             .strike > span {
                 font-size: 12px;
             }
-
             @media screen and (max-width: 420px) {
                 .hero-section {
                     animation: none;
@@ -217,11 +175,10 @@
 </head>
 <body>
 
-    <!-- Google Tag Manager (noscript) -->
+<!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KVCXJMH"
                       height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
-
 <div class="hero-section w-section">
     <div class="navbar w-nav" data-animation="default" data-collapse="medium" data-contain="1" data-duration="400">
         <div class="navbar-container w-container">
@@ -253,74 +210,139 @@
     <div class="container">
         <div class="faq-row w-row">
             <div class="w-col w-col-6">
+                <!--Let's start with collecting the basic information -->
                 <div class="faq-container">
-                    <div class="faq-title">Enter Project Name</div>
-                    <p class="faq-text">Enter the name of your project (15 chars max)
-                        <input type="text" id="name" style="color:#212121"/></p>
-                </div>
-                <div class="faq-container">
-                    <div class="faq-title">Enter Objective (E.g. Houses or Roads)</div>
-                    <p class="faq-text">Enter the objective:  (15 chars max)
-                        <input type="text" id="objective" style="color:#212121"/></p>
-                </div>
-                <div class="faq-container">
-                    <div class="faq-title">Verification count</div>
-                    <p class="faq-text">How many people do you want to see every tile before you consider it finished?
-                        (3 default) - more is recommended for harder tasks with harder to spot objects
-                        <br/><select id="verificationCount">
-                            <option value="3">More coming soon</option>
-                            <option value="3">3</option>
+                    <div class="faq-title">Basic Project Information</div>
 
-                        </select>
-                    </p>
-                </div>
-                <div class="faq-container">
-                    <div class="faq-title">Tileserver import </div>
-                    <p class="faq-text">Make sure you have permission. Google hasn't given permission yet and won't work until a proper API key is given.
-                        <br/><select id="tileServer">
-                            <option value="bing">bing</option>
-                            <option value="digital_globe">digital_globe</option>
-                            <option value="google">google</option>
-
-                        </select>
-                    </p>
-                </div>
-                <div class="faq-container">
-                    <div class="faq-title">Enter Description</div>
-                    <p class="faq-text">Enter the name of your project (15 chars max)
-                        <textarea id="description" style="color:#212121"></textarea></p>
-                </div>
-                <div class="faq-container">
-                    <div class="faq-title">Enter Submission Key</div>
-                    <p class="faq-text">You should get yours from pete masters if you don't have one.
-                        <input type="text" id="submissionKey" style="color:#212121"/></p>
-                </div>
-                <div class="faq-container">
-                    <div class="faq-title">Enter KML file contents</div>
-                    <p class="faq-text">Right click your KML file, copy the contents, and paste it in here
-                        <textarea type="text" style="color:#212121;width:100%;height:500px;" id="kml"></textarea></p>
-                </div>
-                <div class="faq-container">
-                    <div class="faq-title">Enter Direct Image Link</div>
-                    <p class="faq-text">Make sure you have the rights to use this image. It should end with  .jpg or .png
-                        <input type="text" style="color:#212121" id="image"/></p>
-                </div> <div class="faq-container">
-                    <div class="faq-title">Submit</div>
-                    <p class="faq-text">Please check with somebody from Mapswipe that your submission is correct.
-                        <input type="button" style="" id="submit" value="Submit" onClick="submitInfo()"/></p>
+                    <form class="form-style-7">
+                        <ul>
+                        <li>
+                            <label for="name">Name</label>
+                            <input type="text" name="name" id="name" maxlength="25" required>
+                            <span>Enter the name of your project (25 chars max).</span>
+                        </li>
+                        <li>
+                            <label for="objective">Look For</label>
+                            <input type="text" name="objective" id="objective" maxlength="15" required>
+                            <span>What should the users look for (e.g. buildings, cars, trees)? (15 chars max).</span>
+                        </li>
+                        <li>
+                            <label for="projectType">Project Type</label>
+                            <select name="projectType" id="projectType" onchange="displayProjectTypeFormular(this)">
+                                <option value="1">Build Area</option>
+                                <!-- disabled Footprint option for production, since App is not ready yet -->
+                                <!-- <option value="2">Footprint</option> -->
+                            </select>
+                            <span>Select the type of your project.</span>
+                        </li>
+                        <li>
+                            <label for="description">Description</label>
+                            <textarea name="description" id="description" onkeyup="adjust_textarea(this)"></textarea>
+                            <span>Enter the description for your project. (3-5 sentences). </span>
+                        </li>
+                        <li>
+                            <label for="image">Direct Image Link</label>
+                            <input type="text" name="image" id="image" required>
+                            <span>Make sure you have the rights to use this image. It should end with  .jpg or .png.</span>
+                        </li>
+                        <li>
+                            <label for="verificationCount">Verification Count</label>
+                            <input type="number" name="verificationCount" id="verificationCount" value="3" min="3" max="10">
+                            <span>How many people do you want to see every tile before you consider it finished?
+                        (default is 3 - more is recommended for harder tasks, but this will also make project take longer)</span>
+                        </li>
+                        <li>
+                            <label for="submissionKey">Submission Key</label>
+                            <input type="text" name="submissionKey" id="submissionKey" required>
+                            <span>You should get yours from Jorieke Vyncke if you don't have one.</span>
+                        </li>
+                        <li></li>
+                        </ul>
+                    </form>
                 </div>
             </div>
             <div class="w-col w-col-6">
                 <div class="faq-container">
-                    <div class="faq-title">Getting your submission key</div>
-                    <p class="faq-text">Contact Pete Masters to receive a key to add projects. After you have the key,
-                        you can submit a project.
-                </div>
+                    <div class="faq-title">Project Type Specific Information</div>
+
+                    <form class="form-style-7" style="display:block" id="BuildAreaProjectFormular">
+                        <ul>
+                        <li>
+                            <label for="tileServerBuildArea">Tile Server Name</label>
+                            <select name="tileServerBuildArea" id="tileServerBuildArea" onchange="displayTileServerBuildArea(this)">
+                                <option value="bing">Bing</option>
+                                <option value="digital_globe">Digital Globe</option>
+                                <option value="sinergise">Sinergise</option>
+                                <option value="custom">Custom</option>
+                            </select>
+                            <span>Select the tile server providing satellite imagery tiles for your project. Make sure you have permission. Google hasn't given permission yet and won't work until a proper API key is given.</span>
+                        </li>
+                        <li style="display:None" id="tileServerUrlFieldBuildArea">
+                            <label for="tileServerUrlBuildArea">Custom Tile Server URL</label>
+                            <input type="text" name="tileServerUrlBuildArea" id="tileServerUrlBuildArea">
+                            <span>Make sure you have permission. Add a custom tile server URL that uses {z}, {x} and {y} as placeholders and that already includes the api key.</span>
+                        </li>
+                        <li style="display:None" id="tileServerLayerNameFieldBuildArea">
+                            <label for="tileServerLayerNameBuildArea">WMTS Layer Name</label>
+                            <input type="text" name="tileServerLayerNameBuildArea" id="tileServerLayerNameBuildArea">
+                            <span>Enter the name of the layer of the WMTS offered by Sinergise.</span>
+                        </li>
+                        <li>
+                            <label for="zoomLevel">Zoom Level</label>
+                            <input type="number" name="zoomLevel" id="zoomLevel" value="18" min="16" max="24">
+                            <span>We use the Tile Map Service zoom levels. Please check for your area which zoom level is available. For example, Bing imagery is available at zoomlevel 18 for most regions. If you use a custom tile server you may be able to use even higher zoom levels.</span>
+                        </li>
+                        <li>
+                            <label for="kml">KML File Content</label>
+                            <textarea name="kml" id="kml" onkeyup="adjust_textarea(this)"></textarea>
+                            <span>Right click your KML file, copy the contents, and paste it in here. Make sure that you provide a single polygon geometry.</span>
+                        </li>
+                        <li>
+                            <input type="button" style="" id="submit" value="Submit" onClick="submitInfo()">
+                        </li>
+                        </ul>
+                    </form>
+
+                    <form class="form-style-7" style="display:None" id="FootprintProjectFormular">
+                        <ul>
+                        <li>
+                            <label for="tileServerFootprint">Tile Server Name</label>
+                            <select name="tileServerFootprint" id="tileServerFootprint" onchange="displayTileServerFootprint(this)">
+                                <option value="bing">Bing</option>
+                                <option value="digital_globe">Digital Globe</option>
+                                <option value="sinergise">Sinergise</option>
+                                <option value="custom">Custom</option>
+                            </select>
+                            <span>Select the tile server providing satellite imagery tiles for your project. Make sure you have permission. Google hasn't given permission yet and won't work until a proper API key is given.</span>
+                        </li>
+                        <li style="display:None" id="tileServerUrlFieldFootprint">
+                            <label for="tileServerUrlFootprint">Custom Tile Server URL</label>
+                            <input type="text" name="tileServerUrlFootprint" id="tileServerUrlFootprint">
+                            <span>Make sure you have permission. Add a custom tile server URL that uses {z}, {x} and {y} as placeholders and that already includes the api key.</span>
+                        </li>
+                        <li style="display:None" id="tileServerLayerNameFieldFootprint">
+                            <label for="tileServerLayerNameFootprint">WMTS Layer Name</label>
+                            <input type="text" name="tileServerLayerNameFootprint" id="tileServerLayerNameFootprint">
+                            <span>Enter the name of the layer of the WMTS offered by Sinergise.</span>
+                        </li>
+                        <li>
+                            <label for="inputGeometries">Input Geometries File (Direct Link)</label>
+                            <input type="text" name="inputGeometries" id="inputGeometries">
+                            <span>Provide a direct link to a GeoJSON file containing your building footprint geometries.</span>
+                        </li>
+                        <li>
+                            <input type="button" style="" id="submit" value="Submit" onClick="submitInfo()">
+                        </li>
+                        </ul>
+                    </form>
+
             </div>
         </div>
 
     </div>
 </div>
+</div>
+
 <div class="footer w-section">
     <div class="w-row">
         <div class="footer-column w-col w-col-5">
