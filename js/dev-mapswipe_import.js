@@ -27,13 +27,6 @@ var submitInfo = function() {
     var verificationCount = document.getElementById("verificationCount").value;
     var submissionKey = document.getElementById("submissionKey").value;
 
-    var project = {
-        name: name,
-        lookFor: objective,
-        projectDetails: description,
-        image: image,
-        verificationCount: verificationCount,
-    }
 
     if (projectType == 1) {
         var tileServer = document.getElementById("tileServerBuildArea").value;
@@ -43,7 +36,11 @@ var submitInfo = function() {
         var kml = document.getElementById("kml").value;
 
         var mapswipe_import = {
-            project: project,
+            name: name,
+            lookFor: objective,
+            projectDetails: description,
+            image: image,
+            verificationCount: verificationCount,
             projectType: projectType,
             key: submissionKey,
             tileServer: tileServer,
@@ -63,10 +60,12 @@ var submitInfo = function() {
         var layerName = document.getElementById("tileServerLayerNameFootprint").value;
         var inputGeometries = document.getElementById("inputGeometries").value;
 
-
-
         var mapswipe_import = {
-            project: project,
+            name: name,
+            lookFor: objective,
+            projectDetails: description,
+            image: image,
+            verificationCount: verificationCount,
             projectType: projectType,
             key: submissionKey,
             tileServer: tileServer,
