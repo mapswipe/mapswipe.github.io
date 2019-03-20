@@ -15,7 +15,7 @@ firebase.auth().signInAnonymously().catch(function(error) {
     // ...
 });
 var db = firebase.database();
-var importRef = db.ref("/imports")
+var importRef = db.ref("/projectDrafts")
 var submitInfo = function() {
 
     // get basic project information
