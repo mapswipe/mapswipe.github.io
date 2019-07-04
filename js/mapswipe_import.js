@@ -2,7 +2,7 @@
 // TODO: Replace with your project's customized code snippet
 
 var config = {
-    apiKey: "AIzaSyB_0YpjpzQ4zALUa78jREXnryVanus1bew",
+    apiKey: "AIzaSyBDEuVPk0ewvyhZi-Pfmtc9LUWr5Lfryek",
     authDomain: "msf-mapswipe.firebaseapp.com",
     databaseURL: "https://msf-mapswipe.firebaseio.com",
     storageBucket: "msf-mapswipe.appspot.com",
