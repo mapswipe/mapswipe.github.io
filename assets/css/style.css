@@ -261,7 +261,8 @@ hr {
   .navlink:last-child {
     padding-right: 0; }
   .navlink:hover {
-    opacity: 0.8; }
+    opacity: 0.8;
+    color: #ffffff; }
   .navlink:visited {
     color: #ffffff; }
 
