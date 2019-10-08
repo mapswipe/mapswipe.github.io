@@ -6,3 +6,4 @@ The Mapswipe App repository: https://github.com/mapswipe/mapswipe
 
 ## Mapswipe Backend 
 The Mapswipe Backend repository: https://github.com/mapswipe/python-mapswipe-workers
+
