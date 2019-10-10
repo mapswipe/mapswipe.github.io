@@ -174,10 +174,12 @@ img {
   vertical-align: middle;
   display: inline-block; }
 
+/*
 table td:first-child {
   font-weight: bold;
   padding-right: 20px;
   vertical-align: top; }
+*/
 
 hr {
   display: block;
@@ -955,3 +957,20 @@ header {
         display: block; } }
 
 /*# sourceMappingURL=style.css.map */
+
+/* styles for map */
+#map {
+  height: 350px;
+  z-index: 2;
+}
+
+/* styles for projects table */
+#projectsTable {
+  width: 100%;
+}
+
+.paginate_button {
+  border: 1px solid #dee2e6;
+  height: 18px;
+  padding: 0.5rem 0.75rem;
+}
