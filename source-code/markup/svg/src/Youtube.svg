@@ -1,0 +1,14 @@
+<svg role="img" aria-labelledby="youtube-title" width="29px" height="20px" viewBox="0 0 29 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title id="youtube-title">Youtube logo</title>
+    <g role="presentation" id="C01.04_Footer" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="C01.01_Footer_Desktop" transform="translate(-1130.000000, -466.000000)" fill="#FFFFFF">
+            <g id="C01.04_Footer-[DESKTOP]" transform="translate(0.000000, 431.000000)">
+                <g id="Social-Icons" transform="translate(938.000000, 29.000000)">
+                    <g id="Youtube" transform="translate(192.000000, 5.000000)">
+                        <path d="M10.7535882,15.18095 L10.7535882,6.0372 C13.7077059,7.5667 16.6406471,9.08395 19.6159412,10.62395 C16.6441765,12.1517 13.7112353,13.65845 10.7535882,15.18095 M27.7600588,3.57845 C27.3647647,2.55645 26.6359412,1.89145 25.6088824,1.52395 C23.8547647,0.89745 8.64829412,0.82395 3.72652941,1.3472 C2.77005882,1.4487 1.96711765,1.87745 1.34241176,2.6072 C-0.484058824,4.73695 -0.203470588,15.55545 0.745941176,18.14195 C1.13417647,19.2007 1.85947059,19.90245 2.93594118,20.25245 C5.35005882,21.03995 24.2465294,21.0522 26.0800588,20.09845 C26.7594706,19.74495 27.2959412,19.2532 27.6241765,18.5532 C28.8347647,15.97895 28.7994706,6.2507 27.7600588,3.57845" id="Fill-1"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

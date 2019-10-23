@@ -1,0 +1,19 @@
+files: 'assets/sass/**/*.scss'
+
+rules:
+  property-sort-order:
+    - 0
+  no-color-literals:
+    - 0
+  variable-name-format:
+    - 1
+    -
+      convention: 'camelcase'
+  force-pseudo-nesting:
+    - 0
+  nesting-depth:
+    - 1
+    -
+      max-depth: 4
+  force-element-nesting:
+    - 0

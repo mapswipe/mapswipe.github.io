@@ -1,0 +1,99 @@
+.prefooter,
+footer {
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    @media #{$tablet} {
+      flex-direction: column;
+    }
+
+    .footer-column {
+      @media #{$tablet} {
+        margin-bottom: 20px;
+
+        &.last-footer {
+          margin-bottom: 0;
+        }
+      }
+
+      @media #{$mobile} {
+        margin-bottom: 10px;
+      }
+    }
+  }
+}
+
+.prefooter {
+  background-color: $darkBlue;
+  color: $white;
+
+  @media #{$mobile} {
+    padding-bottom: 10px;
+  }
+
+  .appstore-container {
+    text-align: center;
+    margin-top: 20px;
+
+    .appstore-link {
+      display: inline-block;
+      margin-right: 10px;
+
+      &.last {
+        margin-right: 0;
+
+        @media #{$mobile} {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  .social-link {
+    display: inline-block;
+    margin-right: 15px;
+    opacity: 1;
+    transition: opacity 200ms ease;
+    vertical-align: top;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &:hover {
+      opacity: .6;
+      text-decoration: none;
+    }
+
+    svg,
+    img {
+      width: 20px;
+      height: 20px;
+      vertical-align: top;
+    }
+  }
+}
+
+footer {
+  background-color: #060e2f;
+  color: $white;
+  padding: 10px 0;
+
+  @media #{$mobile} {
+    padding: 15px 0;
+  }
+
+  a {
+    &:first-child {
+      padding-left: 0;
+    }
+  }
+
+  p {
+    margin: 0;
+    font-size: 12px;
+  }
+}

@@ -1,0 +1,156 @@
+.section {
+  padding: 75px 40px;
+
+  @media #{$tablet} {
+    padding: 40px;
+  }
+
+  @media #{$mobile} {
+    padding: 40px 20px;
+  }
+
+  &.section-wide {
+    padding: 0;
+
+    .section-container {
+      max-width: none;
+    }
+  }
+
+  &.section-no-margin {
+    padding-bottom: 0;
+  }
+
+  .section-container {
+    max-width: 980px;
+    margin: 0 auto;
+
+    .rich-text {
+      max-width: 700px;
+      margin-bottom: 40px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    h2 {
+      @media #{$tablet} {
+        margin-bottom: 25px;
+      }
+    }
+  }
+
+  .section-flex {
+    display: flex;
+    justify-content: space-between;
+
+    @media #{$largeMobile} {
+      flex-wrap: wrap;
+    }
+
+    &.image-left {
+      .two-thirds {
+        margin-left: 40px;
+
+        @media #{$largeMobile} {
+          margin-left: 0;
+        }
+      }
+
+      .one-third {
+        @media #{$largeMobile} {
+          display: none;
+        }
+      }
+    }
+
+    &.image-right {
+      .two-thirds {
+        margin-right: 40px;
+
+        @media #{$largeMobile} {
+          margin-right: 0;
+        }
+      }
+
+      .one-third {
+        text-align: right;
+
+        @media #{$largeMobile} {
+          display: none;
+
+          &.keep-image {
+            display: block;
+            flex: 1 1 100%;
+            text-align: center;
+
+            img {
+              max-width: 180px;
+              margin-top: 20px;
+            }
+          }
+        }
+
+        img {
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+
+  h2 {
+    margin-top: 0;
+    margin-bottom: 30px;
+  }
+
+  div {
+    &.image-container {
+      max-width: none;
+      margin: 20px auto;
+      padding: 0 20px;
+    }
+  }
+
+  &.dark {
+    background-color: $black;
+    color: $white;
+  }
+
+  &.yellow {
+    background-color: #fcb535;
+  }
+
+  &.green {
+    background-color: #aabf56;
+
+    a {
+      color: $darkBlue;
+
+      &:hover,
+      &:visited {
+        color: rgba($darkBlue, .9);
+      }
+
+      svg {
+        fill: $darkBlue;
+        stroke: $darkBlue;
+      }
+
+      &.link-external {
+        svg {
+          fill: $darkBlue;
+          stroke: transparent;
+        }
+      }
+    }
+  }
+
+  &.blue {
+    background-color: #5482b3;
+  }
+
+  &.light-blue {
+    background-color: $lightBlue;
+  }
+}

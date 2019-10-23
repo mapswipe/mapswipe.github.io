@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <title>Privacy Policy | MapSwipe</title>
+
+  <!-- Start Component -->
+  <!--#include virtual="/markup/components/metas.shtml" -->
+  <!-- End Component -->
+
+</head>
+
+<body class="page-privacy">
+
+  <!-- Start Component -->
+  <!--#include virtual="/markup/components/gtm.shtml" -->
+  <!-- End Component -->
+
+  <!-- Start Component -->
+  <!--#include virtual="/markup/components/header.shtml" -->
+  <!-- End Component -->
+
+  <div class="hero-container-small">
+    <div class="hero-content">
+      <h1 class="hero-heading">Privacy policy</h1>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-container">
+      <div class="rich-text">
+        <p>We are committed to protecting your personal information and being transparent about what we do with it. We
+          are committed to using your personal information in accordance with our responsibilities. We are required to
+          provide you with the information in this Privacy Notice under applicable law which includes:</p>
+
+        <ul>
+          <li>the European Union General Data Protection Regulation (Regulation (EU) 2016/679) ('GDPR') and the Data
+            Protection Act 2018 ('DPA') referred to as the 'data protection legislation'</li>
+          <li>the Privacy and Electronic Communications Regulation (2003)</li>
+        </ul>
+
+        <p>We won't do anything with your information you wouldn't reasonably expect.</p>
+
+        <p>Processing of your personal information is carried out by or on behalf of the British Red Cross Society,
+          incorporated by Royal Charter 1908; registered as a charity in England and Wales (220949), Scotland (SC037738)
+          and the Isle of Man (0752).</p>
+
+        <p>This notice, together with our <a href="cookies.html">cookie policy</a> tells you about how we collect, use
+          and protect your personal information.</p>
+
+        <p>If you have any queries about our Privacy Notice, please get in touch with our Information Governance team:
+        </p>
+
+        <table>
+          <tbody>
+            <tr>
+              <td>Email</td>
+              <td><a href="mailto:dataprotection@redcross.org.uk">dataprotection@redcross.org.uk</a></td>
+            </tr>
+            <tr>
+              <td>Phone</td>
+              <td>0344 871 1111</td>
+            </tr>
+            <tr>
+              <td>Post</td>
+              <td>
+                <p>Head of Information Governance<br>
+                  British Red Cross<br>
+                  44 Moorfields<br>
+                  London<br>
+                  EC2Y 9AL</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>How and when we collect information about you</h3>
+
+        <h4>When you directly give us information</h4>
+        <p>When you download the MapSwipe app, you will have the option to create an account or continue as a guest. If
+          you continue as a guest, you will not need to give us any information about you. If you create an account, you
+          will have to provide us with some information about you so that we can link your contributions to your
+          account.</p>
+
+        <h4>When you indirectly give us information</h4>
+        <p>We monitor how the app is used, for example the pages you view and how you navigate the app, to help us
+          improve the experience. This data is aggregated and anonymised, so we are not able to identify individual
+          users. If you use our website, we may also obtain information about your visit to our website by using
+          cookies. Please visit our <a href="cookies.html">cookie policy</a> for information on this.</p>
+
+        <h3>What information we might collect</h3>
+        <p>When you create an account, we will ask you to provide your email address and create a username and password
+          for your account. Your email address is referred to in this Privacy Notice as 'personal information', whereas
+          your username will be publicly visible and tied to your contributions in the app. Your password is encrypted
+          and not visible to anyone.</p>
+
+        <h3>If you're under 16</h3>
+        <p>If you're aged under 16, you must get your parent/guardian's permission before you provide any personal
+          information to us.</p>
+
+        <h3>How and why we use your information</h3>
+        <p>Your personal information is only used for the purpose of logging into your account or resetting your
+          password. We do not use it for any other purpose including marketing or contacting you in any way.</p>
+
+        <h3>Who do we share your information with?</h3>
+        <p>We will only use your information for the purposes for which it was obtained. We will not, under any
+          circumstances, sell or share your personal information with any third party for their own purposes, and you
+          will not receive marketing from any other companies, charities or other organisations as a result of giving
+          your details to us.</p>
+
+        <h3>How we protect your information</h3>
+        <p>We use technical and corporate organisational safeguards to ensure that your personal information is secure.
+          We limit access to information on a need-to-know basis and take appropriate measures to ensure that our people
+          are aware that such information is only used in accordance with this Privacy Notice.</p>
+
+        <p>We undertake regular reviews of who has access to information that we hold to ensure that your information is
+          only accessible by appropriately trained staff and volunteers.</p>
+
+        <p>However, please be aware that there are always inherent risks in sending information by public networks or
+          using public computers and we cannot 100% guarantee the security of data (including personal information)
+          disclosed or transmitted over public networks.</p>
+
+        <h3>How long will we keep your information?</h3>
+        <p>We will keep your personal information for as long as you use the MapSwipe app. After two years of inactivity
+          on your account (i.e. you have not logged in or opened the app), we will delete your account and all personal
+          information. Your contributions will remain in our database but will no longer be linked to your public
+          username or personal information.</p>
+
+        <h3>International transfers of information</h3>
+        <p>Our servers are located in the US, which means that your personal information is transferred, processed and
+          stored outside the EEA. You should be aware that, in general, legal protection for personal information in
+          countries outside the EEA may not be equivalent to the level of protection provided in the EEA.</p>
+
+        <p>However, we take steps to put in place suitable safeguards to protect your personal information when
+          processed by the supplier such as entering into the European Commission approved standard contractual clauses.
+          By submitting your personal information to us you agree to this transfer, storing or processing at a location
+          outside the EEA.</p>
+
+        <h3>Your rights to your personal information</h3>
+        <p>Data protection legislation gives you the right to erase the personal information about you which is
+          collected through MapSwipe and processed by the British Red Cross.</p>
+
+        <p>This can be done within the app by selecting the option to 'Delete my account' at the bottom of your account
+          profile page. This will remove all of your personal data from our servers and unlink your map contributions
+          from your public username, which will also be deleted.</p>
+
+        <h3>How to make a complaint or raise a concern</h3>
+        <p>If you would like more information, or have any questions about this policy, to make a formal complaint about
+          our approach to data protection or raise privacy concerns please contact the Information Governance Team:</p>
+
+        <table>
+          <tbody>
+            <tr>
+              <td>Email</td>
+              <td><a href="mailto:dataprotection@redcross.org.uk">dataprotection@redcross.org.uk</a></td>
+            </tr>
+            <tr>
+              <td>Phone</td>
+              <td>0344 871 1111</td>
+            </tr>
+            <tr>
+              <td>Post</td>
+              <td>
+                <p>Head of Information Governance<br>
+                  British Red Cross<br>
+                  44 Moorfields<br>
+                  London<br>
+                  EC2Y 9AL</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>If you are not happy with the response you receive, then you can raise your concern with the relevant
+          statutory body:</p>
+
+        <p>Information Commissioner's Office<br>
+          Wycliffe House<br>
+          Water Lane<br>
+          Wilmslow<br>
+          Cheshire<br>
+          SK9 5AF</p>
+
+        <p>Alternatively you can <a href="https://ico.org.uk/" target="_blank">visit their website</a>.</p>
+
+        <p>We are registered with the Information Commissioner's Office as a Data Controller under number Z5379882.</p>
+
+        <h3>Changes to our Privacy Notice</h3>
+        <p>Our Privacy Notice may change from time to time, so please check this page occasionally to see if we have
+          included any updates or changes, and that you are happy with them. (Last updated: 25 September 2019)</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Start Component -->
+  <!--#include virtual="/markup/components/footer.shtml" -->
+  <!-- End Component -->
+</body>
+
+</html>

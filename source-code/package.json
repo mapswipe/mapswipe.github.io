@@ -1,0 +1,65 @@
+{
+    "name": "mapswipe",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "repository": {
+        "type": "git",
+        "url": ""
+    },
+    "author": "BRC",
+    "license": "MIT",
+    "devDependencies": {
+        "autoprefixer": "^7.1.2",
+        "babel-preset-env": "^1.5.2",
+        "babelify": "^7.3.0",
+        "browser-sync": "^2.18.13",
+        "browserify": "^14.5.0",
+        "browserslist": "^2.1.5",
+        "critical": "^0.8.4",
+        "grunticon-lib": "^1.2.3",
+        "gulp": "^3.9.1",
+        "gulp-babel": "^6.1.2",
+        "gulp-bless": "^4.0.0",
+        "gulp-clean": "^0.3.2",
+        "gulp-cssnano": "^2.0.0",
+        "gulp-html-ssi": "git+https://github.com/melono6/gulp-html-ssi.git#b5b6475d178de609348cac53aeff64e5388e12b5",
+        "gulp-if": "^2.0.2",
+        "gulp-imagemin": "^3.3.0",
+        "gulp-jshint": "^2.0.4",
+        "gulp-plumber": "^1.0.1",
+        "gulp-postcss": "^6.0.1",
+        "gulp-sass": "^3.1.0",
+        "gulp-sass-glob": "^1.0.8",
+        "gulp-sequence": "^0.4.6",
+        "gulp-server-livereload": "^1.9.2",
+        "gulp-sourcemaps": "^1.6.0",
+        "gulp-svgo": "^1.2.5",
+        "gulp-uglify": "^2.1.2",
+        "gulp-watch": "^4.3.5",
+        "jshint": "^2.9.5",
+        "jshint-stylish": "~0.1.5",
+        "load-grunt-tasks": "~0.4.0",
+        "merge-stream": "^1.0.0",
+        "onerr": "^0.2.0",
+        "postcss-cachebuster": "^0.1.5",
+        "prompt": "^1.0.0",
+        "vinyl-buffer": "^1.0.0",
+        "vinyl-source-stream": "^1.1.0"
+    },
+    "browserslist": [
+        "ie >= 10",
+        "last 2 versions"
+    ],
+    "dependencies": {
+        "@types/node": "^6.0.79",
+        "directory-encoder": "^0.9.2",
+        "gulp-exit": "0.0.2",
+        "gulp-sass-lint": "^1.4.0",
+        "lodash.assignin": "^4.2.0",
+        "twitter-fetcher": "^17.0.0"
+    },
+    "optionalDependencies": {
+        "fsevents": "*"
+    }
+}

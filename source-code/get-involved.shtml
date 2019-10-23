@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <title>Get Involved | MapSwipe</title>
+
+  <!-- Start Component -->
+  <!--#include virtual="/markup/components/metas.shtml" -->
+  <!-- End Component -->
+
+</head>
+
+<body class="page-involved">
+
+  <!-- Start Component -->
+  <!--#include virtual="/markup/components/gtm.shtml" -->
+  <!-- End Component -->
+
+  <header>
+    <div class="wrapper">
+      <div class="container">
+        <a class="mapswipe-logo" href="index.html">
+          <img class="logo" src="assets/img/svg/mapswipe-white.svg">
+        </a>
+        <div class="mobile-menu hidden">
+          <div class="burger-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+        <nav class="nav-menu" role="navigation">
+          <div>
+            <a class="navlink active" href="get-involved.html">Get involved</a>
+            <a class="navlink" href="data.html">Data</a>
+            <a class="navlink" href="about.html">About</a>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <div class="hero-container">
+    <div class="wrapper">
+      <div class="hero-content">
+        <h1 class="hero-heading">Swipe, volunteer and share.</h1>
+        <div class="hero-subheading">There are many ways to get involved with MapSwipe.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-container section-flex image-right">
+      <div class="two-thirds">
+        <h2>Start mapping</h2>
+        <p>Download the app and swipe through satellite imagery while tapping the features you spot. The tiles you mark
+          will then be drawn by other volunteers to create detailed maps.</p>
+        <p>Contribute from anywhere and track your progress with badges. Commit to help a little every day during your
+          morning commute or while stuck in queue for your coffee. <strong>In as little as 10 minutes, you can help to
+            locate entire communities.</strong></p>
+
+        <div class="appstore-container">
+          <a class="appstore-link" href="https://itunes.apple.com/us/app/mapswipe/id1133855392?ls=1&amp;mt=8"
+            target="_blank">
+            <img height="60" src="assets/img/svg/app-store-dark.svg">
+          </a>
+          <a class="appstore-link last" href="https://play.google.com/store/apps/details?id=org.missingmaps.mapswipe"
+            target="_blank">
+            <img height="60" src="assets/img/svg/google-play-dark.svg">
+          </a>
+        </div>
+      </div>
+      <div class="one-third">
+        <img src="assets/img/logo-blue.png">
+      </div>
+    </div>
+  </div>
+
+  <div class="section yellow">
+    <div class="section-container section-flex image-left">
+      <div class="one-third">
+        <img src="assets/img/volunteer.png">
+      </div>
+      <div class="two-thirds">
+        <h2>Volunteer with us</h2>
+        <p>MapSwipe is powered by a team of passionate volunteers working to ensure that no community is left behind
+          during humanitarian response. <strong>We want you to join&nbsp;us.</strong></p>
+
+        <p>We’re always looking for volunteers to help develop new features, maintain existing code, and ensure that
+          MapSwipe continues to be accessible to the global community.</p>
+
+        <p>Not a techie? No problem! There are plenty of ways for individuals with any background to get involved. From
+          helping out at events to spreading the word about MapSwipe, we can find the right opportunity for you.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-container section-flex image-right">
+      <div class="two-thirds">
+        <h2>Request an area to be mapped</h2>
+        <p>Diverse communities and organizations throughout the world have requested projects to be created using
+          MapSwipe, increasing their efficiency and effectiveness in humanitarian response and development activities.
+          Are you looking to leverage MapSwipe in your next project? It’s simple.</p>
+
+        <p>Email us and a member from the MapSwipe team will follow up with more information on project requirements.
+        </p>
+
+        <a href="mailto:info@mapswipe.org" class="link link-email">
+          <!-- Start Component -->
+          <!--#include virtual="/markup/svg/email.shtml" -->
+          <!-- End Component -->Contact us at info@mapswipe.org</a>
+      </div>
+      <div class="one-third">
+        <img src="assets/img/satellite.png">
+      </div>
+    </div>
+  </div>
+
+  <div class="section light-blue">
+    <div class="section-container section-flex image-left">
+      <div class="one-third">
+        <img src="assets/img/mapathon.png">
+      </div>
+      <div class="two-thirds">
+        <h2>Join or host an event</h2>
+        <p>Organizing a MapSwipe-a-thon is a simple, yet powerful way to make an impact. All you need is a room, your
+          mobile phone, and an internet connection. Grab your friends, organize your colleagues, and get swiping for a
+          humanitarian cause. </p>
+
+        <p>Ready to organize your event? We’ve produced a toolkit for everything you need to get started. Email us to
+          find out more.</p>
+
+        <a href="mailto:info@mapswipe.org" class="link link-email">
+          <!-- Start Component -->
+          <!--#include virtual="/markup/svg/email.shtml" -->
+          <!-- End Component -->Contact us at info@mapswipe.org</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-container section-flex image-right">
+      <div class="two-thirds">
+        <h2>Have other questions?</h2>
+        <p>Get in touch! Whether you have feedback on how to improve the app, want to learn more about the various
+          MapSwipe project types, or are looking to learn more about MapSwipe analytics and data, our team would love to
+          hear from you.</p>
+
+        <a href="mailto:info@mapswipe.org" class="link link-email">
+          <!-- Start Component -->
+          <!--#include virtual="/markup/svg/email.shtml" -->
+          <!-- End Component -->Contact us at info@mapswipe.org</a>
+      </div>
+      <div class="one-third">
+      </div>
+    </div>
+  </div>
+
+  <!-- Start Component -->
+  <!--#include virtual="/markup/components/footer.shtml" -->
+  <!-- End Component -->
+
+</body>
+
+</html>

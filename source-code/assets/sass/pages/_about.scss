@@ -1,0 +1,158 @@
+.page-about {
+  .hero-container {
+    background-image: url('/assets/img/hero/field_mapping.jpg');
+  }
+
+  .steps {
+    background-image: linear-gradient(to right, #e6efc6, #f7e8ac);
+
+    .steps-container {
+      display: flex;
+      max-width: 980px;
+      margin: 0 auto;
+      overflow: hidden;
+
+      @media #{$tablet} {
+        flex-direction: column;
+      }
+
+    }
+
+    .step {
+      position: relative;
+      padding: 50px 60px;
+
+      @media #{$tablet} {
+        padding: 20px 40px;
+      }
+
+      @media #{$mobile} {
+        padding: 20px;
+      }
+
+      &:first-child {
+        padding-left: 20px;
+
+        @media #{$tablet} {
+          padding-left: 40px;
+        }
+
+        @media #{$mobile} {
+          padding-left: 20px;
+        }
+      }
+
+      &:last-child {
+        padding-right: 20px;
+
+        @media #{$tablet} {
+          padding-right: 40px;
+        }
+
+        @media #{$mobile} {
+          padding-right: 20px;
+        }
+      }
+
+      .step-content {
+        position: relative;
+        z-index: 20;
+
+        img {
+          display: block;
+          margin: 40px auto 0;
+        }
+      }
+
+      &.step-1 {
+        background-color: #e6efc6;
+      }
+
+      &.step-2 {
+        background-color: #c7e7e0;
+        padding: 50px 20px;
+        z-index: 10;
+
+        &::before {
+          display: block;
+          content: '';
+          position: absolute;
+          background: #c7e7e0;
+          height: 150%;
+          width: 114%;
+          right: -7%;
+          top: -25%;
+          transform: rotate(5deg);
+          z-index: 0;
+        }
+
+        @media #{$tablet} {
+          padding: 20px 40px;
+
+          &::before {
+            display: none;
+          }
+        }
+
+        @media #{$mobile} {
+          padding: 20px;
+
+          &::before {
+            display: none;
+          }
+        }
+      }
+
+      &.step-3 {
+        background-color: #f7e8ac;
+      }
+
+    }
+  }
+
+  .how-works {
+    .section-flex {
+      flex-wrap: nowrap;
+
+      @media #{$largeMobile} {
+        flex-wrap: wrap;
+      }
+    }
+
+    .one-third {
+      margin-right: 20px;
+      margin-bottom: 20px;
+      align-self: flex-start;
+
+      @media #{$largeMobile} {
+        flex: 1 1 100%;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      img {
+        max-width: 100%;
+      }
+    }
+  }
+
+  .partners-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    .partners {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+
+      img {
+        height: 50px;
+        width: auto;
+        margin: 20px;
+      }
+    }
+  }
+}

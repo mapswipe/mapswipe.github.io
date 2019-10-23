@@ -1,0 +1,14 @@
+<svg role="img" aria-labelledby="instagram-title" width="26" height="26" viewBox="0 0 26 26" xmlns="http://www.w3.org/2000/svg" focusable="false">
+  <title id="instagram-title">Instagram logo</title>
+  <g role="presentation" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <g transform="translate(-1065 -463)" fill="#FFF">
+      <g transform="translate(0 431)">
+        <g transform="translate(938 29)">
+          <g transform="translate(127 3)">
+            <path d="M22.932 21.638c0 .713-.581 1.294-1.294 1.294H4.01a1.294 1.294 0 0 1-1.292-1.294V10.973h2.53a7.846 7.846 0 0 0-.219 1.852 7.794 7.794 0 0 0 7.794 7.796 7.795 7.795 0 0 0 7.575-9.648h2.534v10.665zM8.096 10.973a5.081 5.081 0 0 1 4.727-3.228 5.082 5.082 0 0 1 5.08 5.08 5.085 5.085 0 0 1-5.08 5.078 5.085 5.085 0 0 1-5.078-5.078c0-.653.125-1.278.351-1.852zm10.219-7.436c0-.394.32-.715.716-.715h3.096c.395 0 .717.32.717.715v3.098a.718.718 0 0 1-.717.716h-3.096a.717.717 0 0 1-.716-.716V3.537zM21.638 0H4.01A4.012 4.012 0 0 0 0 4.01v17.628a4.012 4.012 0 0 0 4.01 4.01h17.628a4.01 4.01 0 0 0 4.01-4.01V4.01A4.01 4.01 0 0 0 21.638 0z"></path>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

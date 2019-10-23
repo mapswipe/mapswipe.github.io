@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <title>About | MapSwipe</title>
+
+  <!-- Start Component -->
+  <!--#include virtual="/markup/components/metas.shtml" -->
+  <!-- End Component -->
+
+</head>
+
+<body class="page-about">
+
+  <!-- Start Component -->
+  <!--#include virtual="/markup/components/gtm.shtml" -->
+  <!-- End Component -->
+
+  <header>
+    <div class="wrapper">
+      <div class="container">
+        <a class="mapswipe-logo" href="index.html">
+          <img class="logo" src="assets/img/svg/mapswipe-white.svg">
+        </a>
+        <div class="mobile-menu hidden">
+          <div class="burger-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+        <nav class="nav-menu" role="navigation">
+          <div>
+            <a class="navlink" href="get-involved.html">Get involved</a>
+            <a class="navlink" href="data.html">Data</a>
+            <a class="navlink active" href="about.html">About</a>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <div class="hero-container">
+    <div class="wrapper">
+      <div class="hero-content">
+        <h1 class="hero-heading">Volunteers mapping the world’s most vulnerable.</h1>
+        <p class="hero-subheading">With Missing Maps, we aim to improve response to crises by providing better maps and
+          data for NGOs.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-container">
+      <div class="rich-text">
+        <h2>Welcome to MapSwipe</h2>
+        <p>MapSwipe is an open-source mobile app that is making mapping around the world more coordinated and efficient.
+          We believe that anyone, anywhere should be able to contribute to the Missing Maps project. We aim to
+          proactively map places in the world that are most vulnerable to crisis <strong>before</strong> a crisis
+          happens. From the comfort of a mobile phone, MapSwipe allows any individual to support humanitarian response
+          in three simple steps:</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section section-wide">
+    <div class="section-container">
+      <div class="steps">
+        <div class="steps-container">
+          <div class="step step-1">
+            <div class="step-content">
+              <h3>Step 1</h3>
+              <p>Complete tasks by swiping through satellite imagery of areas that need mapping.</p>
+              <img src="assets/img/svg/process-1.svg">
+            </div>
+          </div>
+          <div class="step step-2">
+            <div class="step-content">
+              <h3>Step 2</h3>
+              <p>The data is used by the Missing Maps project to map vulnerable areas in more detail.</p>
+              <img src="assets/img/svg/process-2.svg">
+            </div>
+          </div>
+          <div class="step step-3">
+            <div class="step-content">
+              <h3>Step 3</h3>
+              <p>The maps help organisations coordinate humanitarian efforts and save lives.</p>
+              <img src="assets/img/svg/process-3.svg">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section section-no-margin">
+    <div class="section-container">
+      <div class="rich-text">
+        <p>Since its start in 2015, MapSwipe has scaled to 29,000 users mapping 600,000 km<sup>2</sup> (larger than the
+          area of Kenya). MapSwipe is volunteer-driven and community-led. Any organization or mapping community can
+          request to use MapSwipe to help with their activities on the ground.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section how-works section-no-margin">
+    <div class="section-container">
+      <div class="rich-text">
+        <h2>How does MapSwipe work?</h2>
+        <p>Within MapSwipe, users will soon be able to select to contribute towards three different project types. Each
+          set of imagery is viewed by at least three different individuals to create a mechanism for internal validation
+          of results. Learn more about each project type below and download the app to go through a complete tutorial
+          before you begin swiping.</p>
+      </div>
+      <div class="section-flex">
+        <div class="one-third">
+          <img src="assets/img/buildarea.png">
+          <h4>Build Area</h4>
+          <p>The original MapSwipe project, volunteers swipe through satellite images looking for features (ie:
+            buildings, roadways, waterways, etc.) and tap once when they have located them.</p>
+        </div>
+        <div class="one-third">
+          <img src="assets/img/footprint.png" style="filter: grayscale(100%);">
+          <h4>Building Footprint (available soon)</h4>
+          <p>Volunteers view images where buildings have been traced in the <a href="https://tasks.hotosm.org"
+              target="_blank">Tasking Manager</a> by remote mappers or through AI. They will indicate tiles where these
+            traces are inaccurate or low-quality, targeting where improved mapping is needed.</p>
+        </div>
+        <div class="one-third">
+          <img src="assets/img/beforeafter.png" style="filter: grayscale(100%);">
+          <h4>Change Detection (available soon)</h4>
+          <p>This project type focuses on detecting changes in environments that may require updating map data.
+            Volunteers look at a <strong>Before</strong> and <strong>After</strong> image, indicating if change is
+            detected within the area.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-container">
+      <div class="section-flex image-right">
+        <div class="two-thirds">
+          <h2>Partners</h2>
+          <p>MapSwipe is part of the Missing Maps Project with large support from these organisations. </p>
+        </div>
+        <div class="one-third keep-image">
+          <a href="http://www.missingmaps.org/" target="_blank"><img src="assets/img/logos/MM-grey.png"
+              alt="Missing Maps logo"></a>
+        </div>
+      </div>
+      <hr>
+      <div class="partners-container">
+        <div class="partners">
+          <a href="http://www.redcross.org.uk/" target="_blank"><img src="assets/img/logos/britishredcross_logo.svg"
+              alt="British Red Cross logo"></a>
+          <a href="https://heigit.org/" target="_blank"><img src="assets/img/logos/heigit_logo.png"
+              alt="Heidelberg Institute for Geoinformation Technology logo"></a>
+        </div>
+        <div class="partners">
+          <a href="https://www.hotosm.org/" target="_blank"><img src="assets/img/logos/hot_logo.png"
+              alt="Humanitarian OpenStreetMap Team logo"></a>
+          <a href="https://www.msf.org.uk/" target="_blank"><img src="assets/img/logos/msf_logo.png"
+              alt="Doctors Without Borders logo"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Start Component -->
+  <!--#include virtual="/markup/components/footer.shtml" -->
+  <!-- End Component -->
+
+</body>
+
+</html>

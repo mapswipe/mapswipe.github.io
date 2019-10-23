@@ -1,0 +1,54 @@
+<div class="prefooter">
+  <div class="wrapper">
+      <div class="container">
+        <div class="footer-column">
+          <div class="appstore-container">
+            <a class="appstore-link" href="https://itunes.apple.com/us/app/mapswipe/id1133855392?ls=1&amp;mt=8" target="_blank"><img height="40" src="assets/img/svg/app-store.svg">
+            </a>
+            <a class="appstore-link last" href="https://play.google.com/store/apps/details?id=org.missingmaps.mapswipe" target="_blank"><img height="40" src="assets/img/logos/google-play-white.png">
+            </a>
+          </div>
+        </div>
+        <div class="footer-column">
+          <a class="social-link" href="https://www.facebook.com/TheMissingMaps" target="_blank">
+            <!-- Start Component -->
+            <!--#include virtual="/markup/svg/facebook.shtml" -->
+            <!-- End Component -->
+          </a>
+          <a class="social-link" href="https://twitter.com/TheMissingMaps" target="_blank">
+            <!-- Start Component -->
+            <!--#include virtual="/markup/svg/twitter.shtml" -->
+            <!-- End Component -->
+          </a>
+          <a class="social-link" href="https://www.instagram.com/themissingmaps" target="_blank">
+            <!-- Start Component -->
+            <!--#include virtual="/markup/svg/instagram.shtml" -->
+            <!-- End Component -->
+          </a>
+          <a class="social-link" href="https://github.com/mapswipe" target="_blank">
+            <img src="assets/img/github.png">
+          </a>
+          <a class="social-link" href="mailto:info@mapswipe.org">
+            <!-- Start Component -->
+            <!--#include virtual="/markup/svg/email.shtml" -->
+            <!-- End Component -->
+          </a>
+        </div>
+      </div>
+    </div>
+</div>
+<footer>
+  <div class="wrapper">
+    <div class="container">
+      <div class="footer-column">
+        <a href="privacy.html" class="navlink">Privacy</a>
+        <a href="cookies.html" class="navlink">Cookies</a>
+      </div>
+      <div class="footer-column last-footer">
+        <p>Copyright © <span id="year"></span> MapSwipe</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script async defer src="assets/js/index.js"></script>

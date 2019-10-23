@@ -1,0 +1,78 @@
+* {
+  box-sizing: border-box;
+
+  &::before,
+  &::after {
+    box-sizing: border-box;
+  }
+}
+
+html {
+  font-size: calc(1em * .625);
+  overflow-y: scroll;
+  text-size-adjust: 100%; // Prevent font scaling in landscape while allowing user zoom */
+}
+
+body {
+  font-size: 100%;
+  letter-spacing: 0;
+  text-align: left;
+}
+
+body,
+div,
+a,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+li,
+img,
+label,
+input,
+select,
+blockquote,
+fieldset,
+legend,
+form {
+  margin: 0;
+  padding: 0;
+}
+
+main,
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+video,
+picture {
+  display: block;
+}
+
+iframe {
+  border: 0 solid transparent;
+}
+
+img {
+  border: 0;
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  img {
+    border: 0;
+  }
+}

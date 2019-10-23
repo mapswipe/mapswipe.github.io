@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <title>Data | MapSwipe</title>
+
+  <!-- Start Component -->
+  <!--#include virtual="/markup/components/metas.shtml" -->
+  <!-- End Component -->
+
+</head>
+
+<body class="page-data">
+
+  <!-- Start Component -->
+  <!--#include virtual="/markup/components/gtm.shtml" -->
+  <!-- End Component -->
+
+  <header>
+    <div class="wrapper">
+      <div class="container">
+        <a class="mapswipe-logo" href="index.html">
+          <img class="logo" src="assets/img/svg/mapswipe-white.svg">
+        </a>
+        <div class="mobile-menu hidden">
+          <div class="burger-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+        <nav class="nav-menu" role="navigation">
+          <div>
+            <a class="navlink" href="get-involved.html">Get involved</a>
+            <a class="navlink active" href="data.html">Data</a>
+            <a class="navlink" href="about.html">About</a>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <div class="hero-container">
+    <div class="wrapper">
+      <div class="hero-content">
+        <h1 class="hero-heading">Swiping is just the beginning.<br>Explore the data.</h1>
+        <p class="hero-subheading">What areas have been mapped? Where is being mapped right now? Which users are leading
+          the way? Find these answers and more.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-container">
+      <h2>MapSwipe analytics</h2>
+      <div class="rich-text">
+        <p>Swiping with MapSwipe is just the beginning. Access a full suite of tools to help you understand where in the
+          world MapSwipe projects are underway and how MapSwipers are making contributions to OpenStreetMap. <a
+            href="https://mapswipe.heigit.org/" target="_blank">See all of the analytics tools here.</a></p>
+      </div>
+
+      <div class="section-flex">
+        <div class="one-half">
+          <img src="assets/img/analytics.png">
+        </div>
+        <div class="one-half">
+          <h3>Analytics</h3>
+          <p>MapSwipe Analytics allows you to engage with an interactive dashboard where you can see in-progress and
+            completed MapSwipe projects around the world. Track the progress of certain projects, see the overall
+            percentage complete and number of users, and see the level of agreement between users on where features are
+            located.</p>
+
+          <a href="https://mapswipe.heigit.org/analytics/" target="_blank" class="link link-external">
+            <!-- Start Component -->
+            <!--#include virtual="/markup/svg/external.shtml" -->
+            <!-- End Component -->Find out more</a>
+        </div>
+      </div>
+
+      <div class="section-flex">
+        <div class="one-half">
+          <img src="assets/img/live.png">
+        </div>
+        <div class="one-half">
+          <h3>Live</h3>
+          <p>Use MapSwipe Live to see the latest contributions from users around the world. Display MapSwipe Live in the
+            background of your next MapSwipe-a-thon to show live progress and interactions with the projects.</p>
+
+          <a href="https://mapswipe.heigit.org/live/" target="_blank" class="link link-external">
+            <!-- Start Component -->
+            <!--#include virtual="/markup/svg/external.shtml" -->
+            <!-- End Component -->Find out more</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="section green">
+    <div class="section-container">
+      <div class="rich-text">
+        <h2>Leaderboard</h2>
+        <p>Having a MapSwipe-a-thon and want to create a friendly competition? Want to know where you stand in a sea of
+          nearly 30,000 other MapSwipers? We recently launched the MapSwipe Leaderboard, allowing users like you to see
+          the distance you have swiped and the number of objects you have found. Use the Search function to find your
+          username and get started.</p>
+        <a href="https://leaderboard.mapswipe.org/" target="_blank" class="link link-external">
+          <!-- Start Component -->
+          <!--#include virtual="/markup/svg/external.shtml" -->
+          <!-- End Component -->Find out more</a>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <div class="section">
+    <div class="section-container">
+      <div class="rich-text">
+        <h2>About MapSwipe data</h2>
+        <p>This project is part of the OpenStreetMap community. The goal is high-quality geographical data, freely
+          accessible and available to everyone. OSM’s reciprocal license protects the data from being appropriated by
+          services that do not share back to OSM.</p>
+
+        <p>MapSwipe is released under a "liberal" non-reciprocal license (Creative Commons Attribution). This only
+          requires that users acknowledge the source. You can do whatever you want with the data, just make sure to
+          credit the MapSwipe contributors.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Start Component -->
+  <!--#include virtual="/markup/components/footer.shtml" -->
+  <!-- End Component -->
+
+</body>
+
+</html>
