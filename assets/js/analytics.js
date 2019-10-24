@@ -1,4 +1,11 @@
 function initMap() {
+
+  var myStyle = {
+	"color": "#ff7800",
+	"weight": 5,
+	"opacity": 0.65
+  };
+
   map = L.map('map').setView([0.0, 0.0], 2);
   L.tileLayer( 'https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
@@ -6,16 +13,19 @@ function initMap() {
   }).addTo( map );
   console.log('added map');
   projectCentroidsLayer = L.geoJSON().addTo(map);
-  projectCentroidsUrl = 'https://dev.mapswipe.org/api/agg_progress_by_project_id_centroid.geojson';
+  projectCentroidsUrl = 'https://dev.mapswipe.org/api/projects/projects_centroid.geojson';
 
   projectGeometriesLayer = L.geoJSON().addTo(map);
-  projectGeometriesUrl = 'https://dev.mapswipe.org/api/agg_progress_by_project_id_geom.geojson';
+  projectGeometriesUrl = 'https://dev.mapswipe.org/api/projects/projects_geom.geojson';
 
   setTimeout(function(){ map.invalidateSize()}, 400);
 
   addGeojsonLayer(projectCentroidsUrl, projectCentroidsLayer);
   // addGeojsonLayer(projectGeometriesUrl, projectGeometriesLayer);
+
+
   }
+
 
 function addGeojsonLayer (url, layer) {
   var geojsonData = $.ajax({
@@ -29,9 +39,15 @@ function addGeojsonLayer (url, layer) {
   // Specify that this code should run once the county data request is complete
   $.when(geojsonData).done(function() {
     layer.addData(geojsonData.responseJSON);
+    layer.bindPopup(function (layer) {
+        // popup with a link to the project page with detailed information
+        popup = '<a href="analyticsProject.html?'+layer.feature.properties.project_id+'">'+layer.feature.properties.name+'</a>'
+        return popup;
+    });
     map.fitBounds(layer.getBounds());
     populateProjectsTable(geojsonData.responseJSON);
   })
+
 }
 
 function populateProjectsTable(geojsonData) {
@@ -44,11 +60,36 @@ function populateProjectsTable(geojsonData) {
     tr = tableRef.insertRow();
 
     td = document.createElement('td')
-    td.innerHTML = element.properties.project_id
+    td.innerHTML = '<a href="analyticsProject.html?'+element.properties.project_id+'">'+element.properties.name+'</a>'
     tr.appendChild(td)
 
     td = document.createElement('td')
     td.innerHTML = element.properties.name
+    tr.appendChild(td)
+
+    td = document.createElement('td')
+    td.innerHTML = element.properties.project_type
+    tr.appendChild(td)
+
+    td = document.createElement('td')
+    td.innerHTML = element.properties.status
+    tr.appendChild(td)
+
+    td = document.createElement('td')
+    if (element.properties.progress > 0) {
+        td.innerHTML = Math.round(100*element.properties.progress)+'%'
+    } else {
+        td.innerHTML = 'not available'
+    }
+    tr.appendChild(td)
+
+    td = document.createElement('td')
+    if (parseInt(element.properties.number_of_users) > 0) {
+        td.innerHTML = element.properties.number_of_users
+    } else {
+        td.innerHTML = 'not available'
+    }
+
     tr.appendChild(td)
   })
 
