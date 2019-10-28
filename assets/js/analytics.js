@@ -12,22 +12,28 @@ function initMap() {
     subdomains: ['a','b','c']
   }).addTo( map );
   console.log('added map');
-  projectCentroidsLayer = L.geoJSON().addTo(map);
   projectCentroidsUrl = 'https://dev.mapswipe.org/api/projects/projects_centroid.geojson';
-
-  projectGeometriesLayer = L.geoJSON().addTo(map);
-  projectGeometriesUrl = 'https://dev.mapswipe.org/api/projects/projects_geom.geojson';
-
   setTimeout(function(){ map.invalidateSize()}, 400);
+  addGeojsonLayer(projectCentroidsUrl);
 
-  addGeojsonLayer(projectCentroidsUrl, projectCentroidsLayer);
-  // addGeojsonLayer(projectGeometriesUrl, projectGeometriesLayer);
+  // add legend
+  addLegend()
 
+}
 
-  }
+function addLegend() {
+  legend = L.control({position: 'bottomleft'});
+  legend.onAdd = function (map) {
+	var div = L.DomUtil.create('div', 'info legend')
+	div.innerHTML += '<i style="background:orange"></i>active<br>'
+	div.innerHTML += '<i style="background:blue"></i>finished<br>'
+	div.innerHTML += '<i style="background:grey"></i>inactive<br>'
+	return div;
+  };
+  legend.addTo(map);
+}
 
-
-function addGeojsonLayer (url, layer) {
+function addGeojsonLayer (url) {
   var geojsonData = $.ajax({
     url:url,
     dataType: "json",
@@ -38,13 +44,46 @@ function addGeojsonLayer (url, layer) {
   })
   // Specify that this code should run once the county data request is complete
   $.when(geojsonData).done(function() {
-    layer.addData(geojsonData.responseJSON);
+
+    // define default point style
+    var geojsonMarkerGreen = {
+        radius: 6,
+        fillColor: "grey",
+        color: "white",
+        weight: 1,
+        opacity: 1,
+        fillOpacity: 0.8
+    };
+
+    // create geojson layer
+    layer = L.geoJSON(geojsonData.responseJSON, {
+        pointToLayer: function (feature, latlng) {
+            return L.circleMarker(latlng, geojsonMarkerGreen);
+        }
+    })
+
+    // set style based on feature properties
+    layer.setStyle(function(feature) {
+        if (feature.properties.status == 'active') {
+            return {fillColor: 'orange', color:'black', radius: 9}
+        } else if (feature.properties.status == 'finished') {
+            return {fillColor: 'blue'}
+        } else {
+            return {fillColor: 'grey'}
+        }
+    }).addTo(map)
+
+    // add a popup
     layer.bindPopup(function (layer) {
         // popup with a link to the project page with detailed information
         popup = '<a href="analyticsProject.html?'+layer.feature.properties.project_id+'">'+layer.feature.properties.name+'</a>'
         return popup;
     });
+
+    // fit to layer extent
     map.fitBounds(layer.getBounds());
+
+    // add data to projects table
     populateProjectsTable(geojsonData.responseJSON);
   })
 
