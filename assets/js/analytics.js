@@ -99,7 +99,7 @@ function populateProjectsTable(geojsonData) {
     tr = tableRef.insertRow();
 
     td = document.createElement('td')
-    td.innerHTML = '<a href="analyticsProject.html?'+element.properties.project_id+'">'+element.properties.name+'</a>'
+    td.innerHTML = '<a href="analyticsProject.html?projectId='+element.properties.project_id+'">'+element.properties.name+'</a>'
     tr.appendChild(td)
 
     td = document.createElement('td')
