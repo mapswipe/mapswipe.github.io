@@ -10,8 +10,8 @@ function initAnalyticsProject() {
 
   // make plot for selected project
   url = 'https://dev.mapswipe.org/api/history/history_'+projectId+'.csv'
-  makePlot(url, projectId, 'progress');
-  makePlot(url, projectId, 'number_of_users');
+  makePlot(url, projectId, 'cum_progress');
+  makePlot(url, projectId, 'cum_number_of_users');
 
   // add items and links to download table
   populateProjectDataTable(projectId);
@@ -218,7 +218,7 @@ function makePlotly( x, y, projectId, attribute){
   }];
 
   Plotly.newPlot(attribute, traces,
-    {title: attribute+' for '+projectId});
+    {title: attribute+' for project: '+projectId});
 };
 
 
