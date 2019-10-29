@@ -14,6 +14,6 @@ module.exports = function (gulp) {
             .pipe(rename(function (path) {
                 path.extname = ".html";
             }))
-            .pipe(gulp.dest('mapswipe.github.io/'));
+            .pipe(gulp.dest('docs/'));
     };
 };

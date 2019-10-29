@@ -43,7 +43,7 @@ module.exports = function (gulp) {
                 .on('error', swallowError)
                 .pipe(sourcemaps.write('./'))
                 .pipe(plumber.stop())
-                .pipe(gulp.dest('mapswipe.github.io/assets/css'))
+                .pipe(gulp.dest('docs/assets/css'))
                 .pipe(browserSync.stream());
 
          return merge(sasslint, sassbuild);

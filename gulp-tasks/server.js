@@ -10,12 +10,12 @@ module.exports = function (gulp) {
     return function () {
         browserSync.init({
             server: {
-                baseDir: "mapswipe.github.io/"
+                baseDir: "docs/"
             },
             port: 8090
         });
         
-        gulp.watch("mapswipe.github.io/**/*.html").on('change', function () {
+        gulp.watch("docs/**/*.html").on('change', function () {
             clearTimeout(htmlTimeout);
             htmlTimeout = setTimeout(browserSync.reload, 150);
         });

@@ -7,7 +7,7 @@ module.exports = function (gulp) {
 
     // grab the file paths
     let files = glob.sync('assets/img/svg/*.svg'),
-        grunticon = new Grunticon(files, 'mapswipe.github.io/assets/css/icons', {enhanceSVG: true});
+        grunticon = new Grunticon(files, 'docs/assets/css/icons', {enhanceSVG: true});
 
     return function () {
         return grunticon.process();

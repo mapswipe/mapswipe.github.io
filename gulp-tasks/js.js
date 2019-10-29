@@ -33,7 +33,7 @@ module.exports = function (gulp) {
                 .pipe(sourcemaps.init({loadMaps: true}))
                 .pipe(uglify())
                 .pipe(sourcemaps.write('./'))
-                .pipe(gulp.dest('mapswipe.github.io/assets/js/')),
+                .pipe(gulp.dest('docs/assets/js/')),
             
             serviceWorker = browserify({
                     entries: 'assets/js/serviceWorker.js', 
@@ -44,7 +44,7 @@ module.exports = function (gulp) {
                 .pipe(source('serviceWorker.js'))
                 .pipe(buffer())
                 .pipe(uglify())
-                .pipe(gulp.dest('mapswipe.github.io/'));
+                .pipe(gulp.dest('docs/'));
 
         return merge(jslinted, browserified, serviceWorker);
     };

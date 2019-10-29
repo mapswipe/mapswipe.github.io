@@ -45,7 +45,7 @@ module.exports = function (gulp) {
                 [
                     autoprefixer({ browsers: browserMatrix, grid: true }),
                     cachebuster({
-                        cssPath : 'mapswipe.github.io/assets/css'
+                        cssPath : 'docs/assets/css'
                     })
                 ]
             ))
@@ -53,7 +53,7 @@ module.exports = function (gulp) {
             .pipe(nano())
             .pipe(sourcemaps.write('./'))
             .pipe(plumber.stop())
-            .pipe(gulp.dest('mapswipe.github.io/assets/css'));
+            .pipe(gulp.dest('docs/assets/css'));
         
         return merge(sasslint, sassbuild);
     };

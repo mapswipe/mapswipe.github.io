@@ -29,7 +29,7 @@ module.exports = function (gulp) {
                 .pipe(buffer())
                 .pipe(sourcemaps.init({loadMaps: true}))
                 .pipe(sourcemaps.write('./'))
-                .pipe(gulp.dest('mapswipe.github.io/assets/js/'))
+                .pipe(gulp.dest('docs/assets/js/'))
                 .pipe(browserSync.stream()),
             
             serviceWorker = browserify({
@@ -40,7 +40,7 @@ module.exports = function (gulp) {
                 .bundle()
                 .pipe(source('serviceWorker.js'))
                 .pipe(buffer())
-                .pipe(gulp.dest('mapswipe.github.io/'));
+                .pipe(gulp.dest('docs/'));
 
         return merge(jslinted, browserified, serviceWorker);
     };
