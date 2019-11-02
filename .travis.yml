@@ -5,3 +5,10 @@ before_script:
   - npm install
   - npm install -g gulp-cli
 script: gulp
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $rc  # Set in the settings page of your repository, as a secure variable
+  keep_history: true
+  on:
+    branch: source-code
