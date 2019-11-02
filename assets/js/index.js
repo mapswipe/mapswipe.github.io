@@ -112,3 +112,4 @@ window.addEventListener('resize', function(){
     clearTimeout(resizeId);
     resizeId = setTimeout(doneResizing, 500);
 });
+
