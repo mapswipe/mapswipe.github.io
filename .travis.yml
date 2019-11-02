@@ -10,5 +10,6 @@ deploy:
   skip_cleanup: true
   github_token: $rc  # Set in the settings page of your repository, as a secure variable
   keep_history: true
+  target_branch: source-code
   on:
     branch: source-code
