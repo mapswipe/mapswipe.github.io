@@ -12,7 +12,7 @@ function initMap() {
     subdomains: ['a','b','c']
   }).addTo( map );
   console.log('added map');
-  projectCentroidsUrl = 'https://dev.mapswipe.org/api/projects/projects_centroid.geojson';
+  projectCentroidsUrl = 'https://apps.mapswipe.org/api/projects/projects_centroid.geojson';
   setTimeout(function(){ map.invalidateSize()}, 400);
   addGeojsonLayer(projectCentroidsUrl);
 
@@ -68,7 +68,7 @@ function addGeojsonLayer (url) {
             return {fillColor: 'orange', color:'black', radius: 9}
         } else if (feature.properties.status == 'finished') {
             return {fillColor: 'blue'}
-        } else {
+        } else  if (feature.properties.status == 'inactive') {
             return {fillColor: 'grey'}
         }
     }).addTo(map)

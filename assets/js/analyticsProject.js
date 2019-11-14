@@ -5,11 +5,11 @@ function initAnalyticsProject() {
 
   // init basic map with all projects as polygon, zoom to selected project
   initProjectMap();
-  url = 'https://dev.mapswipe.org/api/projects/projects_geom.geojson';
+  url = 'https://apps.mapswipe.org/api/projects/projects_geom.geojson';
   addProject(url, projectId);
 
   // make plot for selected project
-  url = 'https://dev.mapswipe.org/api/history/history_'+projectId+'.csv'
+  url = 'https://apps.mapswipe.org/api/history/history_'+projectId+'.csv'
   makePlot(url, projectId, 'cum_progress');
   makePlot(url, projectId, 'cum_number_of_users');
 
@@ -85,7 +85,7 @@ function addProject (url, projectId) {
             style = {fillColor: 'orange', color:'black'}
         } else if (feature.properties.status == 'finished') {
             style = {fillColor: 'blue'}
-        } else {
+        } else if (feature.properties.status == 'inactive') {
             style = {fillColor: 'grey'}
         }
         if (feature.properties.project_id == projectId) {
@@ -136,32 +136,32 @@ function populateProjectDataTable(projectId) {
 
   datasets = [
     {'name': 'Aggregated Results',
-     'url': 'https://dev.mapswipe.org/api/agg_results/agg_results_' + projectId + '.csv',
+     'url': 'https://apps.mapswipe.org/api/agg_results/agg_results_' + projectId + '.csv',
      'description': 'aggregated results',
      'datatype': 'CSV'
      },
      {'name': 'Aggregated Results (with Geometry)',
-     'url': 'https://dev.mapswipe.org/api/agg_results/agg_results_' + projectId + '_geom.geojson',
+     'url': 'https://apps.mapswipe.org/api/agg_results/agg_results_' + projectId + '_geom.geojson',
      'description': 'aggregated results',
      'datatype': 'GeoJSON'
      },
      {'name': 'Groups',
-     'url': 'https://dev.mapswipe.org/api/groups/groups_' + projectId + '.csv',
+     'url': 'https://apps.mapswipe.org/api/groups/groups_' + projectId + '.csv',
      'description': 'Groups',
      'datatype': 'CSV'
      },
      {'name': 'History',
-     'url': 'https://dev.mapswipe.org/api/history/history_' + projectId + '.csv',
+     'url': 'https://apps.mapswipe.org/api/history/history_' + projectId + '.csv',
      'description': 'History',
      'datatype': 'CSV'
      },
      {'name': 'Results',
-     'url': 'https://dev.mapswipe.org/api/results/results_' + projectId + '.csv',
+     'url': 'https://apps.mapswipe.org/api/results/results_' + projectId + '.csv',
      'description': 'Results',
      'datatype': 'CSV'
      },
      {'name': 'Tasks',
-     'url': 'https://dev.mapswipe.org/api/tasks/tasks_' + projectId + '.csv',
+     'url': 'https://apps.mapswipe.org/api/tasks/tasks_' + projectId + '.csv',
      'description': 'Tasks',
      'datatype': 'CSV'
      },
@@ -217,7 +217,16 @@ function makePlotly( x, y, projectId, attribute){
     y: y
   }];
 
-  Plotly.newPlot(attribute, traces,
+
+  if (attribute == 'cum_progress') {
+    var layout = {
+      yaxis: {range: [0, 1]}
+    }
+  } else {
+    var layout = {}
+  }
+
+  Plotly.newPlot(attribute, traces, layout,
     {title: attribute+' for project: '+projectId});
 };
 
