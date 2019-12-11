@@ -24,6 +24,25 @@
 
 <link rel="canonical" href="https://mapswipe.org/index.html">
 
+<!-- Add jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+   integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+   crossorigin=""/>
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+crossorigin=""></script>
+
+<!-- Add Bootstrap -->
+<link rel="stylesheet" href="assets/css/bootstrap-tables.css">
+
+<!-- Add Data Tables -->
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+
 <!-- Google Tag Manager -->
  <script>
   (function (w, d, s, l, i) {
@@ -48,7 +67,7 @@
 
 </head>
 
-<body class="page-data">
+<body class="page-data" onload="initMap()">
 
   <!-- Start Component -->
   <!-- Google Tag Manager (noscript) -->
@@ -78,7 +97,6 @@
           <div>
             <a class="navlink" href="get-involved.html">Get involved</a>
             <a class="navlink active" href="data.html">Data</a>
-            <a class="navlink" href="analytics.html">Analytics</a>
             <a class="navlink" href="about.html">About</a>
           </div>
         </nav>
@@ -97,58 +115,94 @@
   </div>
 
   <div class="section">
+    <div class="section-container section-flex">
+<!--        <div class="Stat-Item one-third">-->
+<!--          <div id="stats-contributors" class="emphasizedNumber">xxx</div>-->
+<!--          <div class="stats-title">Contributors</div>-->
+<!--        </div>-->
+        <div class="Stat-Item one-half">
+          <div class="emphasizedNumber"><span id="stats-mapped-area"> </span></div>
+          <div class="stats-title">Square Kilometers Mapped</div>
+        </div>
+        <div class="Stat-Item one-half">
+          <div id="stats-finished-projects" class="emphasizedNumber"> </div>
+          <div class="stats-title">Finished Projects</div>
+        </div>
+    </div>
     <div class="section-container">
-      <h2>MapSwipe analytics</h2>
+      <div id="map">
+        <!-- map container -->
+      </div>
+      <div class="map-caption">
+        <p>MapSwipe projects are requested by organizations and communities working all over the world. Use this interactive map to see where MapSwipe projects have taken place.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-container">
       <div class="rich-text">
-        <p>Swiping with MapSwipe is just the beginning. Access a full suite of tools to help you understand where in the
-          world MapSwipe projects are underway and how MapSwipers are making contributions to OpenStreetMap. <a
-            href="https://mapswipe.heigit.org/" target="_blank">See all of the analytics tools here.</a></p>
+        <h2>Discover MapSwipe Data</h2>
+        <p>Swiping is just the beginning -- MapSwipe data is created by our users and accessible to the entire community. Use the MapSwipe data dashboards below the see where we've mapped, which organizations are requesting data, and how many individuals contribute to our impact. When using MapSwipe data, all you have to do is credit the MapSwipe contributors.</p>
       </div>
-
-      <div class="section-flex">
-        <div class="one-half">
-          <img src="assets/img/analytics.png">
-        </div>
-        <div class="one-half">
-          <h3>Analytics</h3>
-          <p>MapSwipe Analytics allows you to engage with an interactive dashboard where you can see in-progress and
-            completed MapSwipe projects around the world. Track the progress of certain projects, see the overall
-            percentage complete and number of users, and see the level of agreement between users on where features are
-            located.</p>
-
-          <a href="https://mapswipe.heigit.org/analytics/" target="_blank" class="link link-external">
-            <!-- Start Component -->
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path fill-rule="evenodd" clip-rule="evenodd" d="M0 3H7.07143V4.57143H1.57143V12.4286H9.42857V6.92857H11V14H0V3Z"/>
-  <path fill-rule="evenodd" clip-rule="evenodd" d="M6 0.715099H11.7314L11.7314 0.703979H13.2129L13.2129 0.715099L13.2242 0.715099V2.19661L13.2129 2.19661V8H11.7314V3.24384L5.98291 8.99231L4.92468 7.93409L10.6622 2.19661H6V0.715099Z"/>
-</svg>
-
-            <!-- End Component -->Find out more</a>
-        </div>
+    </div>
+    <div class="section-container">
+      <div class="rich-text">
+        <h3>Find a project</h3>
+        <p>Search for a project and click on it's ID to find out more and access that project's data.</p>
       </div>
-
-      <div class="section-flex">
-        <div class="one-half">
-          <img src="assets/img/live.png">
-        </div>
-        <div class="one-half">
-          <h3>Live</h3>
-          <p>Use MapSwipe Live to see the latest contributions from users around the world. Display MapSwipe Live in the
-            background of your next MapSwipe-a-thon to show live progress and interactions with the projects.</p>
-
-          <a href="https://mapswipe.heigit.org/live/" target="_blank" class="link link-external">
-            <!-- Start Component -->
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path fill-rule="evenodd" clip-rule="evenodd" d="M0 3H7.07143V4.57143H1.57143V12.4286H9.42857V6.92857H11V14H0V3Z"/>
-  <path fill-rule="evenodd" clip-rule="evenodd" d="M6 0.715099H11.7314L11.7314 0.703979H13.2129L13.2129 0.715099L13.2242 0.715099V2.19661L13.2129 2.19661V8H11.7314V3.24384L5.98291 8.99231L4.92468 7.93409L10.6622 2.19661H6V0.715099Z"/>
-</svg>
-
-            <!-- End Component -->Find out more</a>
-        </div>
+      <table id="projectsTable" class="table table-striped table-bordered">
+          <thead>
+            <tr class="thead-inverse">
+              <th>ID</th>
+              <th>Name</th>
+              <th>Project Type</th>
+              <th>Status</th>
+              <th>Progress</th>
+              <th>Contributors</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- body of the table will be added by function -->
+          </tbody>
+        </table>
+      <!-- Data Tables Part-->
+    </div>
+    <div class="section-container">
+      <div class="rich-text">
+        <h3>Download all Projects</h3>
       </div>
+      <table id="allProjectsDataTable" class="table table-striped table-bordered">
+          <thead>
+            <tr class="thead-inverse">
+              <th>Dataset Name</th>
+              <th>Data Type</th>
+              <th>Dataset Description</th>
+            </tr>
+            <tr>
+              <td><a href="https://apps.mapswipe.org/api/projects/projects.csv" target="_blank">Projects</a></td>
+              <td>CSV</td>
+              <td>Information on all projects</td>
+            </tr>
+            <tr>
+              <td><a href="https://apps.mapswipe.org/api/projects/projects_geom.geojson" target="_blank">Projects with Geometry</a></td>
+              <td>GeoJSON</td>
+              <td>Information on all projects with the project geometry</td>
+            </tr>
+            <tr>
+              <td><a href="https://apps.mapswipe.org/api/projects/projects_centroid.geojson" target="_blank">Projects with Centroid</a></td>
+              <td>GeoJSON</td>
+              <td>Information on all projects with the project centroid</td>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- body of the table will be added by function -->
+          </tbody>
+        </table>
 
     </div>
   </div>
+
 
   <div class="section green">
     <div class="section-container">
@@ -174,13 +228,12 @@
   <div class="section">
     <div class="section-container">
       <div class="rich-text">
-        <h2>About MapSwipe data</h2>
+        <h2>Our License</h2>
         <p>This project is part of the OpenStreetMap community. The goal is high-quality geographical data, freely
           accessible and available to everyone. OSM’s reciprocal license protects the data from being appropriated by
           services that do not share back to OSM.</p>
 
-        <p>MapSwipe is released under a "liberal" non-reciprocal license (Creative Commons Attribution). This only
-          requires that users acknowledge the source. You can do whatever you want with the data, just make sure to
+        <p>MapSwipe is released under a "liberal" non-reciprocal license (Creative Commons Attribution). Whenever you want to use the data, just make sure to
           credit the MapSwipe contributors.</p>
       </div>
     </div>
@@ -283,6 +336,7 @@
 </footer>
 
 <script async defer src="assets/js/index.js"></script>
+<script async defer src="assets/js/analytics.js"></script>
 
   <!-- End Component -->
 

@@ -11,10 +11,10 @@ function initAnalyticsProject() {
   // make plot for selected project
   url = 'https://apps.mapswipe.org/api/history/history_'+projectId+'.csv'
   makePlot(url, projectId, 'cum_progress');
-  makePlot(url, projectId, 'cum_number_of_users');
 
   // add items and links to download table
   populateProjectDataTable(projectId);
+
 }
 
 
@@ -71,7 +71,7 @@ function addProject (url, projectId) {
         color: "white",
         weight: 1,
         opacity: 1,
-        fillOpacity: 0.8
+        fillOpacity: 0.4
     };
 
     // create geojson layer
@@ -89,8 +89,8 @@ function addProject (url, projectId) {
             style = {fillColor: 'grey'}
         }
         if (feature.properties.project_id == projectId) {
-            style.color = 'red',
-            style.weight = 5
+            style.color = 'black',
+            style.weight = 3
         }
         return style
     }).addTo(map)
@@ -106,6 +106,18 @@ function addProject (url, projectId) {
     zoomToFeature(layer, projectId);
 
 
+    // get info for our project
+    projectInfo = geojsonData.responseJSON.features.filter(function(item) {
+        return item['properties']['project_id'] == projectId
+    })[0]['properties']
+
+    // add other project info to html
+    document.getElementById('project-info-name').innerHTML = projectInfo['name']
+    document.getElementById('project-info-status').innerHTML = projectInfo['status']
+    document.getElementById('project-info-description').innerHTML = projectInfo['project_details']
+    document.getElementById('project-info-progress').innerHTML = parseInt(Math.round(100 * projectInfo['progress']))
+    document.getElementById('project-info-contributors').innerHTML = projectInfo['number_of_users']
+    document.getElementById('project-info-area').innerHTML = parseInt(projectInfo['area_sqkm'])
 
   })
 }
@@ -204,7 +216,7 @@ function processData(allRows, projectId, attribute) {
   for (var i=0; i<allRows.length; i++) {
     row = allRows[i];
     x.push( row['day'] );
-    y.push( row[attribute] );
+    y.push( 100 * row[attribute] );
   }
   makePlotly( x, y, projectId, attribute);
 }
@@ -220,14 +232,26 @@ function makePlotly( x, y, projectId, attribute){
 
   if (attribute == 'cum_progress') {
     var layout = {
-      yaxis: {range: [0, 1]}
+      autosize: 350,
+      height: 350,
+      margin: {
+        l: 40,
+        r: 40,
+        b: 40,
+        t: 60,
+        pad: 4
+      },
+      yaxis: {range: [0, 101]},
+      title: {
+        text: 'Progress [%]'
+      }
     }
   } else {
     var layout = {}
   }
 
   Plotly.newPlot(attribute, traces, layout,
-    {title: attribute+' for project: '+projectId});
+    {displayModeBar: false})
 };
 
 

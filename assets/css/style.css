@@ -962,6 +962,19 @@ header {
 #map {
   height: 350px;
   z-index: 2;
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+
+.map-caption {
+    text-align: center;
+    font-size: 0.8em;
+}
+
+.plot {
+  margin-top: 50px;
+  margin-bottom: 30px;
+  height: 350px;
 }
 
 /* styles for projects table */
@@ -994,4 +1007,35 @@ header {
 	float: left;
 	margin-right: 8px;
 	opacity: 0.7;
+}
+
+.emphasizedNumber {
+    text-align: center;
+    color: #0d1949;
+    font-size: 3.5em;
+    font-weight: 800;
+    line-height: 20px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+.stats-title {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 1.6em;
+    font-weight: 600;
+    color: #797b7b;
+}
+
+.sorting::after {
+    content: '\21C5' !important;
+}
+
+.sorting_desc::after {
+    content: '\21CA' !important;
+}
+
+
+.sorting_asc::after {
+    content: '\21C8' !important;
 }

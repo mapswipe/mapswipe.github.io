@@ -85,6 +85,28 @@ function addGeojsonLayer (url) {
 
     // add data to projects table
     populateProjectsTable(geojsonData.responseJSON);
+
+    // add overview stats
+    finishedProjects = geojsonData.responseJSON.features.filter(function(item) {
+        return item['properties']['status'] == 'finished' | item['properties']['status'] == 'archived'
+    })
+
+    console.log(finishedProjects)
+    mappedArea = 0.0
+    for (i = 0; i < finishedProjects.length; i++) {
+      projectArea = parseFloat(finishedProjects[i]['properties']['area_sqkm'])
+      if (projectArea > 0) {
+        mappedArea += projectArea
+        console.log(i)
+        console.log(mappedArea)
+        }
+      }
+
+
+    document.getElementById('stats-finished-projects').innerHTML = finishedProjects.length
+    document.getElementById('stats-mapped-area').innerHTML = parseInt(mappedArea/1000)*1000
+
+
   })
 
 }

@@ -35,7 +35,7 @@ integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqD
 crossorigin=""></script>
 
 <!-- Add Bootstrap -->
-<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+<link rel="stylesheet" href="assets/css/bootstrap-tables.css">
 
 <!-- Add Data Tables -->
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap.min.css">
@@ -99,8 +99,7 @@ crossorigin=""></script>
         <nav class="nav-menu" role="navigation">
           <div>
             <a class="navlink" href="get-involved.html">Get involved</a>
-            <a class="navlink" href="data.html">Data</a>
-            <a class="navlink active" href="analytics.html">Analytics</a>
+            <a class="navlink active" href="data.html">Data</a>
             <a class="navlink" href="about.html">About</a>
           </div>
         </nav>
@@ -108,55 +107,59 @@ crossorigin=""></script>
     </div>
   </header>
 
-  <div class="section">
-    <div class="section-container">
-      <h2>Project Statistics</h2>
-      <div class="rich-text">
-        <p>Swiping with MapSwipe is just the beginning. Access a full suite of tools to help you understand where in the
-          world MapSwipe projects are underway and how MapSwipers are making contributions to OpenStreetMap. <a
-            href="https://mapswipe.heigit.org/" target="_blank">See all of the analytics tools here.</a></p>
+  <div class="hero-container">
+    <div class="wrapper">
+      <div class="hero-content">
+        <p class="hero-subheading"><a href="data.html">&#60; Back to data</a></p>
+        <h1 class="hero-heading"><span id="project-info-name"> </span> (<span id="project-info-status"> </span>)</h1>
       </div>
     </div>
   </div>
 
   <div class="section">
     <div class="section-container">
-      <h2>Project Map</h2>
       <div class="rich-text">
-        <p>Swiping with MapSwipe is just the beginning. Access a full suite of tools to help you understand where in the
-          world MapSwipe projects are underway and how MapSwipers are making contributions to OpenStreetMap. <a
-            href="https://mapswipe.heigit.org/" target="_blank">See all of the analytics tools here.</a></p>
-      </div>
-      <div id="map">
-        <!-- map container -->
+        <h2>Project Details</h2>
+        <p><span id="project-info-description">Swipe slowly through the satellite imagery and mark anything that looks like A CONNECTING ROAD. Please read carefully the part about roads in the TUTORIAL before you start swiping. Mutare District is a rural district in Zimbabwe where currently very little mapping on the road network has been done. The data you contribute will be of great help in the planning of movements and associated logistical decisions pertaining to vaccination campaigns, especially during the rainy season. </span></p>
       </div>
     </div>
   </div>
 
   <div class="section">
-    <div class="section-container">
-      <h2>Project Progress</h2>
-      <div class="rich-text">
-        <p>Swiping with MapSwipe is just the beginning. Access a full suite of tools to help you understand where in the
-          world MapSwipe projects are underway and how MapSwipers are making contributions to OpenStreetMap. <a
-            href="https://mapswipe.heigit.org/" target="_blank">See all of the analytics tools here.</a></p>
+    <div class="section-container section-flex">
+        <div class="Stat-Item one-third">
+          <div class="emphasizedNumber"><span id="project-info-progress"> </span>%</div>
+          <div class="stats-title">Complete</div>
+        </div>
+        <div class="Stat-Item one-third">
+          <div id="project-info-contributors" class="emphasizedNumber"> </div>
+          <div class="stats-title">Contributors</div>
+        </div>
+        <div class="Stat-Item one-third">
+          <div id="project-info-area" class="emphasizedNumber"> </div>
+          <div class="stats-title">Square Kilometers</div>
+        </div>
+    </div>
+    <div class="section-container section-flex">
+      <div class="two-thirds">
+        <div id="map">
+          <!-- map container -->
+        </div>
       </div>
-      <div id="cum_progress">
-        <!-- data table container -->
-      </div>
-      <div id="cum_number_of_users">
-        <!-- data table container -->
+      <div class="one-third">
+         <div id="cum_progress" class="plot">
+          <!-- data table container -->
+        </div>
       </div>
     </div>
   </div>
 
-  <div class="section">
+
+  <div class="section light-blue">
     <div class="section-container">
-      <h2>Download Data</h2>
       <div class="rich-text">
-        <p>Swiping with MapSwipe is just the beginning. Access a full suite of tools to help you understand where in the
-          world MapSwipe projects are underway and how MapSwipers are making contributions to OpenStreetMap. <a
-            href="https://mapswipe.heigit.org/" target="_blank">See all of the analytics tools here.</a></p>
+        <h2>Download Data</h2>
+        <p>Below you'll find the data downloads for this MapSwipe project, including a GeoJSON file that can be imported into the HOT Tasking Manager for more detailed mapping of the area.</a></p>
       </div>
       <table id="projectDataTable" class="table table-striped table-bordered">
           <thead>
@@ -172,6 +175,20 @@ crossorigin=""></script>
             <!-- body of the table will be added by function -->
           </tbody>
         </table>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-container">
+      <div class="rich-text">
+        <h2>Our License</h2>
+        <p>This project is part of the OpenStreetMap community. The goal is high-quality geographical data, freely
+          accessible and available to everyone. OSM’s reciprocal license protects the data from being appropriated by
+          services that do not share back to OSM.</p>
+
+        <p>MapSwipe is released under a "liberal" non-reciprocal license (Creative Commons Attribution). Whenever you want to use the data, just make sure to
+          credit the MapSwipe contributors.</p>
+      </div>
     </div>
   </div>
 
