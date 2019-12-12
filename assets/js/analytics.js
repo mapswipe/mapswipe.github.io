@@ -91,22 +91,17 @@ function addGeojsonLayer (url) {
         return item['properties']['status'] == 'finished' | item['properties']['status'] == 'archived'
     })
 
-    console.log(finishedProjects)
     mappedArea = 0.0
     for (i = 0; i < finishedProjects.length; i++) {
       projectArea = parseFloat(finishedProjects[i]['properties']['area_sqkm'])
       if (projectArea > 0) {
         mappedArea += projectArea
-        console.log(i)
-        console.log(mappedArea)
         }
       }
 
-
     document.getElementById('stats-finished-projects').innerHTML = finishedProjects.length
-    document.getElementById('stats-mapped-area').innerHTML = parseInt(mappedArea/1000)*1000
-
-
+    // convert to broken up numbers
+    document.getElementById('stats-mapped-area').innerHTML = (parseInt(mappedArea/1000)*1000).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
   })
 
 }

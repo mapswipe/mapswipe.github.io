@@ -117,7 +117,7 @@ function addProject (url, projectId) {
     document.getElementById('project-info-description').innerHTML = projectInfo['project_details']
     document.getElementById('project-info-progress').innerHTML = parseInt(Math.round(100 * projectInfo['progress']))
     document.getElementById('project-info-contributors').innerHTML = projectInfo['number_of_users']
-    document.getElementById('project-info-area').innerHTML = parseInt(projectInfo['area_sqkm'])
+    document.getElementById('project-info-area').innerHTML = parseInt(projectInfo['area_sqkm']).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
 
   })
 }
