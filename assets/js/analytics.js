@@ -7,8 +7,8 @@ function initMap() {
   };
 
   map = L.map('map').setView([0.0, 0.0], 2);
-  L.tileLayer( 'https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+  L.tileLayer( 'https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', {
+    attribution: 'Map tiles by <a href="https://carto.com/">Carto</a>, under <a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0.</a> Data by <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>, under ODbL.',
     subdomains: ['a','b','c']
   }).addTo( map );
   console.log('added map');
@@ -122,14 +122,6 @@ function populateProjectsTable(geojsonData) {
 
     td = document.createElement('td')
     td.innerHTML = '<a href="analyticsProject.html?projectId='+element.properties.project_id+'">'+element.properties.name+'</a>'
-    tr.appendChild(td)
-
-    td = document.createElement('td')
-    td.innerHTML = element.properties.name
-    tr.appendChild(td)
-
-    td = document.createElement('td')
-    td.innerHTML = element.properties.project_type
     tr.appendChild(td)
 
     td = document.createElement('td')
