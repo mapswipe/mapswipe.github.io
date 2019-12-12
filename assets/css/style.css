@@ -719,97 +719,31 @@ footer {
 .hero-container-small {
   background-color: #eef2fb;
   color: #0d1949;
-  text-align: center;
-  padding: 120px 0 80px; }
-  @media screen and (max-width: 767px) {
-    .hero-container-small {
-      padding: 100px 0 50px; } }
-  .hero-container-small h1 {
-    margin: 0;
-    padding: 0; }
-
-.hero-heading {
-  margin: 0 auto 25px;
-  font-size: 50px;
-  line-height: 60px;
-  letter-spacing: 1px; }
-  @media screen and (max-width: 767px) {
-    .hero-heading {
-      font-size: 34px;
-      line-height: 42px; } }
-
-.hero-subheading {
-  margin: 0 auto;
-  opacity: .8;
-  font-size: 18px;
-  line-height: 27px;
-  font-weight: 300;
-  letter-spacing: .5px; }
-  @media screen and (max-width: 767px) {
-    .hero-subheading {
-      font-size: 16px;
-      line-height: 24px; } }
-
-.hero-container {
-  position: relative;
-  background-size: cover;
-  background-position: center right;
-  min-height: 90vh;
-  color: #fff;
   padding: 180px 0 140px; }
-  @media screen and (max-width: 767px) {
-    .hero-container {
-      padding: 140px 0 100px; } }
-  .hero-container::before {
-    content: '';
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: -webkit-gradient(linear, left top, right top, color-stop(30%, rgba(0, 0, 0, 0.7)), to(transparent));
-    background: linear-gradient(90deg, rgba(0, 0, 0, 0.7) 30%, transparent 100%);
-    z-index: 0; }
-    @media screen and (max-width: 479px) {
-      .hero-container::before {
-        background: rgba(0, 0, 0, 0.7) 100%; } }
-  .hero-container .wrapper {
+  .hero-container-small .wrapper {
     position: relative;
     max-width: 1084px;
     margin: 0 auto;
     z-index: 100; }
     @media screen and (max-width: 479px) {
-      .hero-container .wrapper {
+      .hero-container-small .wrapper {
         position: absolute;
         top: 50%;
         -webkit-transform: translateY(-50%);
                 transform: translateY(-50%);
         text-align: center; } }
-  .hero-container .hero-content {
+  .hero-container-small .hero-content {
     max-width: 700px;
     margin: 0 40px; }
     @media screen and (max-width: 479px) {
-      .hero-container .hero-content {
+      .hero-container-small .hero-content {
         margin: 0 20px; } }
   @media screen and (max-width: 679px) {
-    .hero-container .appstore-container a {
+    .hero-container-small .appstore-container a {
       display: block; } }
   @media screen and (max-width: 479px) {
-    .hero-container .appstore-container a:first-child {
+    .hero-container-small .appstore-container a:first-child {
       margin-right: 0; } }
-
-.hero-container-small {
-  background-color: #eef2fb;
-  color: #0d1949;
-  text-align: center;
-  padding: 120px 0 80px; }
-  @media screen and (max-width: 767px) {
-    .hero-container-small {
-      padding: 100px 0 50px; } }
-  .hero-container-small h1 {
-    margin: 0;
-    padding: 0; }
 
 .hero-heading {
   margin: 0 auto 25px;
