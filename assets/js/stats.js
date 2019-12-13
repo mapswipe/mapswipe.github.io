@@ -76,7 +76,7 @@ function addGeojsonLayer (url) {
     // add a popup
     layer.bindPopup(function (layer) {
         // popup with a link to the project page with detailed information
-        popup = '<a href="analyticsProject.html?projectId='+layer.feature.properties.project_id+'">'+layer.feature.properties.name+'</a>'
+        popup = '<a href="project.html?projectId='+layer.feature.properties.project_id+'">'+layer.feature.properties.name+'</a>'
         return popup;
     });
 
@@ -116,7 +116,7 @@ function populateProjectsTable(geojsonData) {
     tr = tableRef.insertRow();
 
     td = document.createElement('td')
-    td.innerHTML = '<a href="analyticsProject.html?projectId='+element.properties.project_id+'">'+element.properties.name+'</a>'
+    td.innerHTML = '<a href="project.html?projectId='+element.properties.project_id+'">'+element.properties.name+'</a>'
     tr.appendChild(td)
 
     td = document.createElement('td')
