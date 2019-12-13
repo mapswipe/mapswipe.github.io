@@ -98,7 +98,7 @@ function addProject (url, projectId) {
     // add a popup
     layer.bindPopup(function (layer) {
         // popup with a link to the project page with detailed information
-        popup = '<a href="analyticsProject.html?projectId='+layer.feature.properties.project_id+'">'+layer.feature.properties.name+'</a>'
+        popup = '<a href="project.html?projectId='+layer.feature.properties.project_id+'">'+layer.feature.properties.name+'</a>'
         return popup;
     });
 
