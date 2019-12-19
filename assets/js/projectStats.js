@@ -136,16 +136,6 @@ function zoomToFeature(layer, projectId) {
 
 function populateProjectDataTable(projectId) {
 
-    var datasetNames = [
-    {"name":"Raw Results", "description":"Raw Result contain information on MapSwipe Tasks where at least one user submitted a results. If there are several results per task by different users, the individual results are aggregated. For each task a yes_count, maybe_count and bad_imagery_count and further values are provided.", "datatype":"geoJSON"},
-    {"name":"Yes Maybe Results", "description":"This dataset contains all results where at least one mapswipe user submitted a yes or maybe classification. The output dataset depicts the union of all selected results.", "datatype":"geoJSON"},
-    {"name":"Bad Imagery Results", "description":"This dataset contains all results where at least one mapswipe user submitted a bad_image classification and no other classifications are more frequently submitted. The output dataset depicts the union of all selected results.", "datatype":"geoJSON"},
-    {"name":"HOT Tasking Manager Geometries", "description":"This dataset contains shapes that are ready to use in the HOT Tasking Manager. Currently, the geometries consist of maximum 15 MapSwipe Tasks, where at least one user indicated the presence of a building. The filter criteria and size of the tasks can be adapted on request.", "datatype":"geoJSON"},
-    {"name":"Progress and Contributors by date", "description":"Number of contributors and project progress on a daily basis.", "datatype":"CSV"},
-    {"name":"QGIS style total results count", "description":"You can use this file to set the symbology of your results data in QGIS", "datatype":"QML"},
-    {"name":"QGIS style yes results share", "description":"You can use this file to set the symbology of your results data in QGIS", "datatype":"QML"},
-  ]
-
   datasets = [
     {'name': 'Aggregated Results',
      'url': 'https://apps.mapswipe.org/api/agg_results/agg_results_' + projectId + '.csv',
@@ -155,6 +145,16 @@ function populateProjectDataTable(projectId) {
      {'name': 'Aggregated Results (with Geometry)',
      'url': 'https://apps.mapswipe.org/api/agg_results/agg_results_' + projectId + '_geom.geojson',
      'description': 'aggregated results',
+     'datatype': 'GeoJSON'
+     },
+     {'name': 'HOT Tasking Manager Geometries',
+     'url': 'https://apps.mapswipe.org/api/hot_tm/hot_tm_' + projectId + '.geojson',
+     'description': 'This dataset contains shapes that are ready to use in the HOT Tasking Manager. Currently, the geometries consist of maximum 15 MapSwipe Tasks, where at least 35% of all users indicated the presence of a building by classifying as "yes" or "maybe"',
+     'datatype': 'GeoJSON'
+     },
+     {'name': 'Moderate to High Agreement Yes Maybe Geometries',
+     'url': 'https://apps.mapswipe.org/api/yes_maybe/yes_maybe_' + projectId + '.geojson',
+     'description': 'This dataset contains all results where at least 35% of users submitted a "yes" or "maybe" classification. The output dataset depicts the union of all selected results.',
      'datatype': 'GeoJSON'
      },
      {'name': 'Groups',
@@ -195,9 +195,9 @@ function populateProjectDataTable(projectId) {
     td.innerHTML = element.datatype
     tr.appendChild(td)
 
-//    td = document.createElement('td')
-//    td.innerHTML = element.description
-//    tr.appendChild(td)
+    td = document.createElement('td')
+    td.innerHTML = element.description
+    tr.appendChild(td)
 
     td = document.createElement('td')
     td.innerHTML = '<a href="'+element.url+'" target="_blank">Download</a>'
