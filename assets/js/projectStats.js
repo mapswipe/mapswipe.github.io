@@ -149,12 +149,12 @@ function populateProjectDataTable(projectId) {
      },
      {'name': 'HOT Tasking Manager Geometries',
      'url': 'https://apps.mapswipe.org/api/hot_tm/hot_tm_' + projectId + '.geojson',
-     'description': 'HOT Tasking Manager geometries',
+     'description': 'This dataset contains shapes that are ready to use in the HOT Tasking Manager. Currently, the geometries consist of maximum 15 MapSwipe Tasks, where at least 35% of all users indicated the presence of a building by classifying as "yes" or "maybe"',
      'datatype': 'GeoJSON'
      },
      {'name': 'Moderate to High Agreement Yes Maybe Geometries',
      'url': 'https://apps.mapswipe.org/api/yes_maybe/yes_maybe_' + projectId + '.geojson',
-     'description': 'Moderate to High Agreement Yes Maybe Geometries',
+     'description': 'This dataset contains all results where at least 35% of users submitted a "yes" or "maybe" classification. The output dataset depicts the union of all selected results.',
      'datatype': 'GeoJSON'
      },
      {'name': 'Groups',
@@ -195,9 +195,9 @@ function populateProjectDataTable(projectId) {
     td.innerHTML = element.datatype
     tr.appendChild(td)
 
-//    td = document.createElement('td')
-//    td.innerHTML = element.description
-//    tr.appendChild(td)
+    td = document.createElement('td')
+    td.innerHTML = element.description
+    tr.appendChild(td)
 
     td = document.createElement('td')
     td.innerHTML = '<a href="'+element.url+'" target="_blank">Download</a>'
